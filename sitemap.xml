@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rookieintraining.github.io/categories/</loc>
+    <loc>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</loc>
+    <lastmod>2020-02-17T18:45:18+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://rookieintraining.github.io/</loc>
+    <lastmod>2020-02-17T18:45:18+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rookieintraining.github.io/posts/</loc>
+    <lastmod>2020-02-17T18:45:18+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rookieintraining.github.io/categories/</loc>
   </url>
   
   <url>
