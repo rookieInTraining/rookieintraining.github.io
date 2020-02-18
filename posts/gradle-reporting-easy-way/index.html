@@ -11,10 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Generating HTML reports for your tests via Gradle"/>
-<meta name="twitter:description" content="In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?"/>
+<meta name="twitter:description" content="There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
+In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder."/>
 
     <meta property="og:title" content="Generating HTML reports for your tests via Gradle" />
-<meta property="og:description" content="In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?" />
+<meta property="og:description" content="There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
+In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rookieintraining.github.io/posts/gradle-reporting-easy-way/" />
 <meta property="article:published_time" content="2020-02-17T18:45:18+05:30" />
@@ -61,7 +63,7 @@
     <link rel="icon" type="image/png" href="https://rookieintraining.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://rookieintraining.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.64.1" />
   </head>
 
   
@@ -115,7 +117,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              7-minute read
+              6-minute read
             </span>
           </div>
           
@@ -125,103 +127,84 @@
 
       <div>
         
-        
-
-<p><div style="text-align: justify">
-In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time? or needs to have a documented step for each action?</p>
-
+        <!-- raw HTML omitted -->
 <p>There are many frameworks for your reporting needs (two of the most notable ones are <a href="http://allure.qatools.ru/">Allure</a> and <a href="https://extentreports.com/">Extent</a> reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.</p>
-
 <p>In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder.</p>
-
-<hr>
-
-<h1 id="what-is-gradle">What is Gradle?</h1>
-
+<!-- raw HTML omitted -->
+<h1 id="what-isgradle">What is Gradle?</h1>
 <p>Gradle is an open-source build automation tool like Maven and Ant. It is build upon the same concepts as its predecessors with the only difference being that it is better in terms of performance and provides a Groovy-based DSL allowing you; the programmer to be more flexible. It supports languages like Java, Scala and Groovy with support for more languages planned for the future.</p>
-
 <p>In case, your project is not part of the above system of supported languages you can create a project with the basic gradle settings too. Due to the DSL and task based structure of gradle, it provides you a lot of flexibility. As long as you can code the logic as a task, there are many things you can do in your project.
 You can read further about gradle tasks and build lifecycle <a href="https://docs.gradle.org/current/userguide/tutorial_using_tasks.html">here</a>.</p>
-
-<hr>
-
+<!-- raw HTML omitted -->
 <h1 id="the-groovy-markupbuilder">The Groovy MarkupBuilder</h1>
-
 <p><code>groovy.xml.MarkupBuilder</code> is the Groovy helper class which will help us in generating the html file for our reports.</p>
-
 <p>To create a tag using the markup builder you need to add a method call with the name of the tag that you want to create. Assuming the <code>xmlMarkup</code> as the object initialized, the below code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>()</code></pre></div>
-<p>will create a tag <code>myCustomTag</code> in the XML/HTML format</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span>&gt;&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;</code></pre></div>
-<p>To add text to the tag created, just add a string as an argument. So, the below code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>(<span style="color:#0ff;font-weight:bold">&#34;Lorem Ipsum&#34;</span>)</code></pre></div>
-<p>will produce :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span>&gt;Lorem Ipsum&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;</code></pre></div>
-<p>To add any attribute to a tag you can add key values as arguments to the call. So the below code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;container&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;name&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;typical&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;Lorem Ipsum&#34;</span>)</code></pre></div>
-<p>will create the your tag, with the following attributes :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;container&#34;</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;typical&#34;</span>&gt;Lorem Ipsum&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;</code></pre></div>
-<p>To create nested tags, you need to add groovy closures :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>()
+</code></pre></div><p>will create a tag <code>myCustomTag</code> in the XML/HTML format</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span>&gt;&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;
+</code></pre></div><p>To add text to the tag created, just add a string as an argument. So, the below code :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>(<span style="color:#0ff;font-weight:bold">&#34;Lorem Ipsum&#34;</span>)
+</code></pre></div><p>will produce :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span>&gt;Lorem Ipsum&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;
+</code></pre></div><p>To add any attribute to a tag you can add key values as arguments to the call. So the below code :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;container&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;name&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;typical&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;Lorem Ipsum&#34;</span>)
+</code></pre></div><p>will create the your tag, with the following attributes :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">myCustomTag</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;container&#34;</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;typical&#34;</span>&gt;Lorem Ipsum&lt;/<span style="font-weight:bold">myCustomTag</span>&gt;
+</code></pre></div><p>To create nested tags, you need to add groovy closures :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">myCustomTag</span>(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;container&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;name&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;typical&#34;</span>) { 
     tag1(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;table&#34;</span>) { 
         tag2(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;turner&#34;</span>,<span style="color:#0ff;font-weight:bold">&#34;Lorem Ipsum&#34;</span>) 
     } 
-}</code></pre></div>
-<p>To create self-closing tags you can use <code>mkp.yeild()</code> method call.</p>
-
+}
+</code></pre></div><p>To create self-closing tags you can use <code>mkp.yeild()</code> method call.</p>
 <p>You can read more about MarkupBuilder <a href="https://groovy-lang.org/processing-xml.html#_markupbuilder">here</a>.</p>
-
-<hr>
-
-<h1 id="usage">Usage :</h1>
-
+<!-- raw HTML omitted -->
+<h1 id="usage-">Usage :</h1>
 <p>A typical gradle flow contains of tasks which are executed in a respective phase of the build&rsquo;s cycle. A task in gradle&rsquo;s terminology can be work such as executing tests for a build, copying a particular file to a different destination, executing a CLI command, archiving a folder, etc.
 The example shown below is of a test output in the JUnit&rsquo;s XML format. For our use case, we&rsquo;ll be creating a task called htmlReport which will read the data from a XML and write it down to the report as an HTML file.</p>
-
 <p>Given we have a XML file as below :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#0f0;font-weight:bold">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34;?&gt;</span>
-<span style="font-weight:bold">&lt;testsuites&gt;</span>
+<span style="font-weight:bold">&lt;testsuites</span><span style="font-weight:bold">&gt;</span>
   <span style="font-weight:bold">&lt;testsuite</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;Test Suite&#34;</span> <span style="color:#007f7f">tests=</span><span style="color:#0ff;font-weight:bold">&#34;3&#34;</span> <span style="color:#007f7f">failure=</span><span style="color:#0ff;font-weight:bold">&#34;3&#34;</span> <span style="color:#007f7f">timestamp=</span><span style="color:#0ff;font-weight:bold">&#34;2018-10-04T06:58:18.063Z&#34;</span><span style="font-weight:bold">&gt;</span>
     <span style="font-weight:bold">&lt;testcase</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;Test 1&#34;</span> <span style="color:#007f7f">classname=</span><span style="color:#0ff;font-weight:bold">&#34;com.test.demo&#34;</span> <span style="color:#007f7f">time=</span><span style="color:#0ff;font-weight:bold">&#34;92.689&#34;</span><span style="font-weight:bold">&gt;</span>
       <span style="font-weight:bold">&lt;failure</span> <span style="color:#007f7f">message=</span><span style="color:#0ff;font-weight:bold">&#34;Step Failed: Element not found&#34;</span><span style="font-weight:bold">/&gt;</span>
-      <span style="font-weight:bold">&lt;system-out&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
+      <span style="font-weight:bold">&lt;system-out</span><span style="font-weight:bold">&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
     <span style="font-weight:bold">&lt;/testcase&gt;</span>
     <span style="font-weight:bold">&lt;testcase</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;Test 2&#34;</span> <span style="color:#007f7f">classname=</span><span style="color:#0ff;font-weight:bold">&#34;com.test.demo&#34;</span> <span style="color:#007f7f">time=</span><span style="color:#0ff;font-weight:bold">&#34;95.604&#34;</span><span style="font-weight:bold">&gt;</span>
       <span style="font-weight:bold">&lt;failure</span> <span style="color:#007f7f">message=</span><span style="color:#0ff;font-weight:bold">&#34;Step Failed: Element not found&#34;</span><span style="font-weight:bold">/&gt;</span>
-      <span style="font-weight:bold">&lt;system-out&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
+      <span style="font-weight:bold">&lt;system-out</span><span style="font-weight:bold">&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
     <span style="font-weight:bold">&lt;/testcase&gt;</span>
     <span style="font-weight:bold">&lt;testcase</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;Test 3&#34;</span> <span style="color:#007f7f">classname=</span><span style="color:#0ff;font-weight:bold">&#34;com.test.demo&#34;</span> <span style="color:#007f7f">time=</span><span style="color:#0ff;font-weight:bold">&#34;93.25&#34;</span><span style="font-weight:bold">&gt;</span>
       <span style="font-weight:bold">&lt;failure</span> <span style="color:#007f7f">message=</span><span style="color:#0ff;font-weight:bold">&#34;Step Failed: Element not found&#34;</span><span style="font-weight:bold">/&gt;</span>
-      <span style="font-weight:bold">&lt;system-out&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
+      <span style="font-weight:bold">&lt;system-out</span><span style="font-weight:bold">&gt;</span>Some Test Related Output<span style="font-weight:bold">&lt;/system-out&gt;</span>
     <span style="font-weight:bold">&lt;/testcase&gt;</span>
   <span style="font-weight:bold">&lt;/testsuite&gt;</span>
-<span style="font-weight:bold">&lt;/testsuites&gt;</span></code></pre></div>
-<p>In order to convert the above into a custom HTML report, we&rsquo;ll start with the below skeletal <code>build.gradle</code> file.</p>
+<span style="font-weight:bold">&lt;/testsuites&gt;</span>
+</code></pre></div><p>In order to convert the above into a custom HTML report, we&rsquo;ll start with the below skeletal <code>build.gradle</code> file.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#fff;font-weight:bold">import</span> groovy.xml.MarkupBuilder
 group <span style="color:#0ff;font-weight:bold">&#39;&lt;project-name&gt;&#39;</span>
 version <span style="color:#0ff;font-weight:bold">&#39;1.0-SNAPSHOT&#39;</span>
 apply plugin: <span style="color:#0ff;font-weight:bold">&#39;base&#39;</span>
 task htmlReport {
      <span style="color:#007f7f">// Write code here
-</span><span style="color:#007f7f"></span>}</code></pre></div>
-<p>The <code>apply plugin: 'base'</code> provides some tasks and conventions that are common to most builds. It also adds a structure to the build that promotes consistency in how they are run.</p>
-
+</span><span style="color:#007f7f"></span>}
+</code></pre></div><p>The <code>apply plugin: 'base'</code> provides some tasks and conventions that are common to most builds. It also adds a structure to the build that promotes consistency in how they are run.</p>
 <p>We can parse the above written xml in Groovy using <code>XMLParser</code>. The following code parses the xml document for us :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#fff;font-weight:bold">def</span> xmlFile = <span style="color:#fff;font-weight:bold">new</span> XmlParser().<span style="color:#007f7f">parse</span>(filename)</code></pre></div>
-<p>You can fetch values of a tag&rsquo;s attributes by following the syntax :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#fff;font-weight:bold">def</span> xmlFile = <span style="color:#fff;font-weight:bold">new</span> XmlParser().<span style="color:#007f7f">parse</span>(filename)
+</code></pre></div><p>You can fetch values of a tag&rsquo;s attributes by following the syntax :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlFile.&lt;tagName&gt;[<span style="color:#0ff;font-weight:bold">&#39;@&lt;attribute&gt;&#39;</span>]
 
 <span style="color:#007f7f">//To get name of a testsuite from the given xml
 </span><span style="color:#007f7f"></span>xmlFile.<span style="color:#007f7f">testsuite</span>[<span style="color:#0ff;font-weight:bold">&#39;@name&#39;</span>]
 
 <span style="color:#007f7f">//To get the name of the first test case present inside the testsuite
-</span><span style="color:#007f7f"></span>xmlFile.<span style="color:#007f7f">testsuite</span>[<span style="color:#ff0;font-weight:bold">0</span>].<span style="color:#007f7f">testcase</span>[<span style="color:#ff0;font-weight:bold">0</span>][<span style="color:#0ff;font-weight:bold">&#39;@name&#39;</span>]</code></pre></div>
-<p>Now that we know how to read from the xml file. We start by initializing the MarkupBuilder for creating our html file :</p>
+</span><span style="color:#007f7f"></span>xmlFile.<span style="color:#007f7f">testsuite</span>[<span style="color:#ff0;font-weight:bold">0</span>].<span style="color:#007f7f">testcase</span>[<span style="color:#ff0;font-weight:bold">0</span>][<span style="color:#0ff;font-weight:bold">&#39;@name&#39;</span>]
+</code></pre></div><p>Now that we know how to read from the xml file. We start by initializing the MarkupBuilder for creating our html file :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#fff;font-weight:bold">def</span> xmlWriter = <span style="color:#fff;font-weight:bold">new</span> FileWriter(file(<span style="color:#0ff;font-weight:bold">&#34;${project.buildDir}/index.html&#34;</span>))
-<span style="color:#fff;font-weight:bold">def</span> xmlMarkup = <span style="color:#fff;font-weight:bold">new</span> MarkupBuilder(xmlWriter)</code></pre></div>
-<p>As an HTML convention we&rsquo;ll need to add the <code>DOCTYPE</code> tag</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlWriter.<span style="color:#007f7f">write</span>(<span style="color:#0ff;font-weight:bold">&#34;&lt;!DOCTYPE html&gt;\n&#34;</span>)</code></pre></div>
-<p>Using our learnings from the <em>The Groovy MarkupBuilder</em> section, we can create the HTML documents like the one below :</p>
+<span style="color:#fff;font-weight:bold">def</span> xmlMarkup = <span style="color:#fff;font-weight:bold">new</span> MarkupBuilder(xmlWriter)
+</code></pre></div><p>As an HTML convention we&rsquo;ll need to add the <code>DOCTYPE</code> tag</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlWriter.<span style="color:#007f7f">write</span>(<span style="color:#0ff;font-weight:bold">&#34;&lt;!DOCTYPE html&gt;\n&#34;</span>)
+</code></pre></div><p>Using our learnings from the <em>The Groovy MarkupBuilder</em> section, we can create the HTML documents like the one below :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">xmlMarkup.<span style="color:#007f7f">html</span>() {
   head() {
     meta(charset: <span style="color:#0ff;font-weight:bold">&#34;utf-8&#34;</span>)
@@ -274,8 +257,8 @@ task htmlReport {
             }
         }
     }
-}</code></pre></div>
-<p>So our build.gradle file should look like this :</p>
+}
+</code></pre></div><p>So our build.gradle file should look like this :</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#fff;font-weight:bold">import</span> groovy.xml.MarkupBuilder
 group <span style="color:#0ff;font-weight:bold">&#39;&lt;project-name&gt;&#39;</span>
 version <span style="color:#0ff;font-weight:bold">&#39;1.0-SNAPSHOT&#39;</span>
@@ -385,12 +368,10 @@ xmlMarkup.<span style="color:#007f7f">html</span>() {
     script(type: <span style="color:#0ff;font-weight:bold">&#34;text/javascript&#34;</span>, src: <span style="color:#0ff;font-weight:bold">&#34;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js&#34;</span>) { mkp.<span style="color:#007f7f">yield</span>(<span style="color:#0ff;font-weight:bold">&#34;&#34;</span>) }
 }
     }
-}</code></pre></div>
-<p>All you need to do now is to place this report generation task after the task which executes your tests and you should be able to view your custom reports upon success/failure of the tests.</p>
-
+}
+</code></pre></div><p>All you need to do now is to place this report generation task after the task which executes your tests and you should be able to view your custom reports upon success/failure of the tests.</p>
 <p>You can also refer to the example code hosted on <a href="https://github.com/rookieInTraining/gradleReportingExample">GitHub</a>.</p>
-
-<h2 id="div"></div></h2>
+<!-- raw HTML omitted -->
 
       </div>
 
