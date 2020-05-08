@@ -6,9 +6,64 @@
     <description>Recent content in Tags on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Mon, 17 Feb 2020 18:45:18 +0530</lastBuildDate>
     
 	<atom:link href="https://rookieintraining.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>css</title>
+      <link>https://rookieintraining.github.io/tags/css/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>frameworks</title>
+      <link>https://rookieintraining.github.io/tags/frameworks/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/frameworks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gradle</title>
+      <link>https://rookieintraining.github.io/tags/gradle/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/gradle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://rookieintraining.github.io/tags/html/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reports</title>
+      <link>https://rookieintraining.github.io/tags/reports/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/reports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xml</title>
+      <link>https://rookieintraining.github.io/tags/xml/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/tags/xml/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

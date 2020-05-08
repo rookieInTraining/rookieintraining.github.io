@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test automation on Home</title>
+    <link>https://rookieintraining.github.io/categories/test-automation/</link>
+    <description>Recent content in test automation on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 17 Feb 2020 18:45:18 +0530</lastBuildDate>
+    
+	<atom:link href="https://rookieintraining.github.io/categories/test-automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generating HTML reports for your tests via Gradle</title>
+      <link>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</link>
+      <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
+      
+      <guid>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</guid>
+      <description>There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
+In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder.</description>
+    </item>
+    
+  </channel>
+</rss>
