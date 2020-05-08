@@ -116,7 +116,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              1-minute read
+              3-minute read
             </span>
           </div>
           <div class="categories">
@@ -138,42 +138,80 @@
 
       <div>
         
-        <!-- raw HTML omitted -->
-<p>With countless blogs and documentation fuelling my experiments, here is what I&rsquo;ve been able to learn of the WebDriver and the <!-- raw HTML omitted -->W3C WebDriver Protocol<!-- raw HTML omitted -->.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.</p>
-<p>Selenium WebDriver is a W3C Recommendation</p>
-<!-- raw HTML omitted -->
+        <div style="text-align: justify">
+Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet
+in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.
+<p>With countless blogs and documentation fuelling my experiments, here is what I&rsquo;ve been able to learn of the WebDriver and the <a href="https://w3c.github.io/webdriver/">W3C WebDriver Protocol</a>.</p>
+<h2 id="what-is-a-webdriver">What is a WebDriver?</h2>
+<div style="text-align: justify">
+According to the selenium documentation :
+<blockquote>
+WebDriver drives a browser natively, as a user would, either locally or on a remote machine using the Selenium server, marks a leap forward in terms of browser automation.
+<br/>
+<br/>
+Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.
+<br/>
+<br/>
+Selenium WebDriver is a W3C Recommendation
+</blockquote>
 <p>To further simplify the understanding, I define the WebDriver as  :</p>
-<!-- raw HTML omitted -->
+<blockquote>
+WebDriver is a server sitting between the test code and the browser imitating user actions.
 <p>It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.</p>
 <p>These implementations are generally based on the browsers. Eg : Chrome and Firefox have a totally different implementation of the same set of standards. Hence, the requirement of GeckoDriver and ChromeDriver.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>  },
-  &quot;setWindowRect&quot;: true,
-  &quot;strictFileInteractability&quot;: false,
-  &quot;timeouts&quot;: {
-    &quot;implicit&quot;: 0,
-    &quot;pageLoad&quot;: 300000,
-    &quot;script&quot;: 30000
-  },
-  &quot;unhandledPromptBehavior&quot;: &quot;dismiss and notify&quot;,
-  &quot;webauthn:virtualAuthenticators&quot;: true
-},
-&quot;sessionId&quot;: &quot;8294d507e58e23d05cb03cfd26540530&quot;
-</code></pre>
-<p>}
-}</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;div style=&#34;text-align: justify&#34;&gt;
-  With the session id with me, I can now use it to further automate the browser action like navigating to a webpage, for which we need to hit the &lt;strong&gt;&lt;em&gt;/session/{sessionId}/url&lt;/em&gt;&lt;/strong&gt; endpoint along with the url as payload :
-&lt;/div&gt;
-```shell
-curl -v -XPOST &#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530/url&#34; -d &#39;{&#34;url&#34; : &#34;https://www.amazon.com&#34;}&#39;
-</code></pre></div><!-- raw HTML omitted -->
+</blockquote>
+---
+## Running the WebDriver locally :
+In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we'll be using Chrome whose's WebDriver instance can be started using the below command :
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./chromedriver --port <span style="color:#ae81ff">9515</span>
+</code></pre></div><p>This starts the instance of the WebDriver which can be used to automate browser actions. Here, the driver is listening to the port <strong><em>9515</em></strong>, so all the request we make should be directed on the same port.</p>
+<h2 id="interacting-with-the-webdriver-">Interacting with the WebDriver :</h2>
+<p>Now, in order to start a new instance of the browser, one needs to send a POST request to the <strong><em>/session</em></strong> endpoint along with the capabilities of the browser.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -v -XPOST <span style="color:#e6db74">&#34;http://localhost:9515/session&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;capabilities&#34;:{&#34;firstMatch&#34;:[{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}]},&#34;desiredCapabilities&#34;:{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}}&#39;</span>
+</code></pre></div><p>The output of which gives me the session id of the browser, which in turn is used in performing the user actions. The output of the command above gave the following response :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;value&#34;</span>: {
+    <span style="color:#f92672">&#34;capabilities&#34;</span>: {
+      <span style="color:#f92672">&#34;acceptInsecureCerts&#34;</span>: <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;browserName&#34;</span>: <span style="color:#e6db74">&#34;chrome&#34;</span>,
+      <span style="color:#f92672">&#34;browserVersion&#34;</span>: <span style="color:#e6db74">&#34;81.0.4044.138&#34;</span>,
+      <span style="color:#f92672">&#34;chrome&#34;</span>: {
+        <span style="color:#f92672">&#34;chromedriverVersion&#34;</span>: <span style="color:#e6db74">&#34;81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776})&#34;</span>,
+        <span style="color:#f92672">&#34;userDataDir&#34;</span>: <span style="color:#e6db74">&#34;/var/folders/mx/qj98dnwj50vfpk4gr8z0__jr0000gn/T/.com.google.Chrome.B4BYFs&#34;</span>
+      },
+      <span style="color:#f92672">&#34;goog:chromeOptions&#34;</span>: {
+        <span style="color:#f92672">&#34;debuggerAddress&#34;</span>: <span style="color:#e6db74">&#34;localhost:65302&#34;</span>
+      },
+      <span style="color:#f92672">&#34;networkConnectionEnabled&#34;</span>: <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;pageLoadStrategy&#34;</span>: <span style="color:#e6db74">&#34;normal&#34;</span>,
+      <span style="color:#f92672">&#34;platformName&#34;</span>: <span style="color:#e6db74">&#34;mac os x&#34;</span>,
+      <span style="color:#f92672">&#34;proxy&#34;</span>: {
+
+      },
+      <span style="color:#f92672">&#34;setWindowRect&#34;</span>: <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;strictFileInteractability&#34;</span>: <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;timeouts&#34;</span>: {
+        <span style="color:#f92672">&#34;implicit&#34;</span>: <span style="color:#ae81ff">0</span>,
+        <span style="color:#f92672">&#34;pageLoad&#34;</span>: <span style="color:#ae81ff">300000</span>,
+        <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#ae81ff">30000</span>
+      },
+      <span style="color:#f92672">&#34;unhandledPromptBehavior&#34;</span>: <span style="color:#e6db74">&#34;dismiss and notify&#34;</span>,
+      <span style="color:#f92672">&#34;webauthn:virtualAuthenticators&#34;</span>: <span style="color:#66d9ef">true</span>
+    },
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;8294d507e58e23d05cb03cfd26540530&#34;</span>
+  }
+}
+</code></pre></div><p>With the session id with me, I can now use it to further automate the browser action like navigating to a webpage, for which we need to hit the <strong><em>/session/{sessionId}/url</em></strong> endpoint along with the url as payload :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -v -XPOST <span style="color:#e6db74">&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530/url&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;url&#34; : &#34;https://www.amazon.com&#34;}&#39;</span>
+</code></pre></div><p>The response of which after successfully navigating to the url (in this case amazon) is null as per the specification if things are fine.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#66d9ef">null</span>}
+</code></pre></div><p>And the same session id can be used to delete my browser session by sending the <strong><em>DELETE</em></strong> request to the <strong><em>/session/{sessionId}</em></strong> endpoint, effectively quitting my browser :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -XDELETE <span style="color:#e6db74">&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530&#34;</span>
+</code></pre></div><p>The response of which is again null as per the specification.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#66d9ef">null</span>}
+</code></pre></div><p>The above example give better insights of the working of selenium. The session that it creates and how that is used w.r.t the automation of user actions. Hope this article finds its way for the curious soul searching for answers.</p>
+</div>
+---
 
       </div>
 

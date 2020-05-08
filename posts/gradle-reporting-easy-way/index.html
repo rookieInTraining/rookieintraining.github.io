@@ -11,12 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Generating HTML reports for your tests via Gradle"/>
-<meta name="twitter:description" content="There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
-In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder."/>
+<meta name="twitter:description" content="In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?"/>
 
     <meta property="og:title" content="Generating HTML reports for your tests via Gradle" />
-<meta property="og:description" content="There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
-In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder." />
+<meta property="og:description" content="In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rookieintraining.github.io/posts/gradle-reporting-easy-way/" />
 <meta property="article:published_time" content="2020-02-17T18:45:18+05:30" />
@@ -117,7 +115,7 @@ In case your project is on gradle and you want to customize the reports or your 
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              6-minute read
+              7-minute read
             </span>
           </div>
           <div class="categories">
@@ -143,15 +141,16 @@ In case your project is on gradle and you want to customize the reports or your 
 
       <div>
         
-        <!-- raw HTML omitted -->
+        <div style="text-align: justify">
+In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time? or needs to have a documented step for each action?
 <p>There are many frameworks for your reporting needs (two of the most notable ones are <a href="http://allure.qatools.ru/">Allure</a> and <a href="https://extentreports.com/">Extent</a> reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.</p>
 <p>In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder.</p>
-<!-- raw HTML omitted -->
+<hr>
 <h1 id="what-isgradle">What is Gradle?</h1>
 <p>Gradle is an open-source build automation tool like Maven and Ant. It is build upon the same concepts as its predecessors with the only difference being that it is better in terms of performance and provides a Groovy-based DSL allowing you; the programmer to be more flexible. It supports languages like Java, Scala and Groovy with support for more languages planned for the future.</p>
 <p>In case, your project is not part of the above system of supported languages you can create a project with the basic gradle settings too. Due to the DSL and task based structure of gradle, it provides you a lot of flexibility. As long as you can code the logic as a task, there are many things you can do in your project.
 You can read further about gradle tasks and build lifecycle <a href="https://docs.gradle.org/current/userguide/tutorial_using_tasks.html">here</a>.</p>
-<!-- raw HTML omitted -->
+<hr>
 <h1 id="the-groovy-markupbuilder">The Groovy MarkupBuilder</h1>
 <p><code>groovy.xml.MarkupBuilder</code> is the Groovy helper class which will help us in generating the html file for our reports.</p>
 <p>To create a tag using the markup builder you need to add a method call with the name of the tag that you want to create. Assuming the <code>xmlMarkup</code> as the object initialized, the below code :</p>
@@ -174,7 +173,7 @@ You can read further about gradle tasks and build lifecycle <a href="https://doc
 <span style="color:#f92672">}</span>
 </code></pre></div><p>To create self-closing tags you can use <code>mkp.yeild()</code> method call.</p>
 <p>You can read more about MarkupBuilder <a href="https://groovy-lang.org/processing-xml.html#_markupbuilder">here</a>.</p>
-<!-- raw HTML omitted -->
+<hr>
 <h1 id="usage-">Usage :</h1>
 <p>A typical gradle flow contains of tasks which are executed in a respective phase of the build&rsquo;s cycle. A task in gradle&rsquo;s terminology can be work such as executing tests for a build, copying a particular file to a different destination, executing a CLI command, archiving a folder, etc.
 The example shown below is of a test output in the JUnit&rsquo;s XML format. For our use case, we&rsquo;ll be creating a task called htmlReport which will read the data from a XML and write it down to the report as an HTML file.</p>
@@ -387,7 +386,8 @@ xmlMarkup<span style="color:#f92672">.</span><span style="color:#a6e22e">html</s
 <span style="color:#f92672">}</span>
 </code></pre></div><p>All you need to do now is to place this report generation task after the task which executes your tests and you should be able to view your custom reports upon success/failure of the tests.</p>
 <p>You can also refer to the example code hosted on <a href="https://github.com/rookieInTraining/gradleReportingExample">GitHub</a>.</p>
-<!-- raw HTML omitted -->
+</div>
+---
 
       </div>
 

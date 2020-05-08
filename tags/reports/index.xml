@@ -17,8 +17,7 @@
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
       
       <guid>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</guid>
-      <description>There are many frameworks for your reporting needs (two of the most notable ones are Allure and Extent reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
-In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder.</description>
+      <description>In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?</description>
     </item>
     
   </channel>

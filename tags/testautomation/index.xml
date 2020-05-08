@@ -17,11 +17,8 @@
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
       
       <guid>https://rookieintraining.github.io/posts/understanding-selenium-webdriver/</guid>
-      <description>With countless blogs and documentation fuelling my experiments, here is what I&amp;rsquo;ve been able to learn of the WebDriver and the W3C WebDriver Protocol.
-Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.
-Selenium WebDriver is a W3C Recommendation
-To further simplify the understanding, I define the WebDriver as :
-It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.</description>
+      <description>Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium. With countless blogs and documentation fuelling my experiments, here is what I&amp;rsquo;ve been able to learn of the WebDriver and the W3C WebDriver Protocol.
+What is a WebDriver?</description>
     </item>
     
   </channel>
