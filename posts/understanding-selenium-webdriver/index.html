@@ -160,9 +160,8 @@ WebDriver is a server sitting between the test code and the browser imitating us
 <p>It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.</p>
 <p>These implementations are generally based on the browsers. Eg : Chrome and Firefox have a totally different implementation of the same set of standards. Hence, the requirement of GeckoDriver and ChromeDriver.</p>
 </blockquote>
----
-## Running the WebDriver locally :
-In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we'll be using Chrome whose's WebDriver instance can be started using the below command :
+<h2 id="running-the-webdriver-locally-">Running the WebDriver locally :</h2>
+<p>In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we&rsquo;ll be using Chrome whose&rsquo;s WebDriver instance can be started using the below command :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./chromedriver --port <span style="color:#ae81ff">9515</span>
 </code></pre></div><p>This starts the instance of the WebDriver which can be used to automate browser actions. Here, the driver is listening to the port <strong><em>9515</em></strong>, so all the request we make should be directed on the same port.</p>
 <h2 id="interacting-with-the-webdriver-">Interacting with the WebDriver :</h2>
