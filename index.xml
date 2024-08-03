@@ -36,5 +36,12 @@
       <guid>https://rookieintraining.github.io/contactme/</guid>
       <description>Well I don&amp;rsquo;t have a fully functional &amp;ldquo;Contact Me&amp;rdquo; page just yet, but in case you do want to reach out. Please feel free to send a mail to &amp;ldquo;reach-ish@proton.me&amp;rdquo;.</description>
     </item>
+    <item>
+      <title>About Me</title>
+      <link>https://rookieintraining.github.io/aboutme/</link>
+      <pubDate>Mon, 17 Feb 2020 18:37:30 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/aboutme/</guid>
+      <description>Hi! My name is Ish. 👋. I&amp;rsquo;ve been navigating this world since October, 1989.</description>
+    </item>
   </channel>
 </rss>
