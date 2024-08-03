@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphql-Queries on Home</title>
+    <link>https://rookieintraining.github.io/tags/graphql-queries/</link>
+    <description>Recent content in Graphql-Queries on Home</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 Jul 2024 23:55:00 +0530</lastBuildDate>
+    <atom:link href="https://rookieintraining.github.io/tags/graphql-queries/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fetch GraphQL query from an Apollo client using APQ - Part 1</title>
+      <link>https://rookieintraining.github.io/posts/debug-apq-extension-part1/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/posts/debug-apq-extension-part1/</guid>
+      <description>APIs (Application Programming Interfaces) for web applications have evolved significantly since the early days of the internet. Initially, APIs were simple and used primarily for data exchange between server and client, often through protocols like SOAP (Simple Object Access Protocol). These early APIs were cumbersome and required extensive documentation and strict adherence to protocols.&#xA;The rise of REST (Representational State Transfer) in the early 2000s marked a major shift, offering a more flexible and scalable approach to building web APIs.</description>
+    </item>
+  </channel>
+</rss>

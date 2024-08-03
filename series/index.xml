@@ -4,21 +4,23 @@
     <title>Series on Home</title>
     <link>https://rookieintraining.github.io/series/</link>
     <description>Recent content in Series on Home</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Feb 2020 21:47:38 +0530</lastBuildDate>
-    
-	<atom:link href="https://rookieintraining.github.io/series/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 20 Jul 2024 23:55:00 +0530</lastBuildDate>
+    <atom:link href="https://rookieintraining.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphl-Automation</title>
+      <link>https://rookieintraining.github.io/series/graphl-automation/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/series/graphl-automation/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Selenium</title>
       <link>https://rookieintraining.github.io/series/selenium/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/series/selenium/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

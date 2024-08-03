@@ -1,100 +1,91 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://rookieintraining.github.io/categories/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
   <url>
     <loc>https://rookieintraining.github.io/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2024-07-21T00:55:00+05:30</lastmod>
+  </url><url>
     <loc>https://rookieintraining.github.io/posts/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rookieintraining.github.io/series/selenium/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2024-07-21T00:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/apollo-graphql/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/apq/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/categories/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/chrome-extensions/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/debugging/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/posts/debug-apq-extension-part1/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/series/graphl-automation/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/graphql/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/graphql-queries/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/series/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/tags/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/categories/test-automation/</loc>
+    <lastmod>2024-07-20T23:55:00+05:30</lastmod>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/selenium/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rookieintraining.github.io/series/</loc>
+  </url><url>
+    <loc>https://rookieintraining.github.io/series/selenium/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rookieintraining.github.io/tags/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rookieintraining.github.io/categories/test-automation/</loc>
-    <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/testautomation/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/posts/understanding-selenium-webdriver/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/webdriver/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/webdriver-protocol/</loc>
     <lastmod>2020-02-19T21:47:38+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/css/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/frameworks/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/gradle/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/html/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/reports/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://rookieintraining.github.io/tags/xml/</loc>
     <lastmod>2020-02-17T18:45:18+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/contactme/</loc>
+    <lastmod>2020-02-17T18:41:49+05:30</lastmod>
+  </url><url>
+    <loc>https://rookieintraining.github.io/authors/</loc>
   </url>
-  
 </urlset>

@@ -4,102 +4,121 @@
     <title>Tags on Home</title>
     <link>https://rookieintraining.github.io/tags/</link>
     <description>Recent content in Tags on Home</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Feb 2020 21:47:38 +0530</lastBuildDate>
-    
-	<atom:link href="https://rookieintraining.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 20 Jul 2024 23:55:00 +0530</lastBuildDate>
+    <atom:link href="https://rookieintraining.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>selenium</title>
+      <title>Apollo-Graphql</title>
+      <link>https://rookieintraining.github.io/tags/apollo-graphql/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/apollo-graphql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apq</title>
+      <link>https://rookieintraining.github.io/tags/apq/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/apq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome-Extensions</title>
+      <link>https://rookieintraining.github.io/tags/chrome-extensions/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/chrome-extensions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debugging</title>
+      <link>https://rookieintraining.github.io/tags/debugging/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/debugging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graphql</title>
+      <link>https://rookieintraining.github.io/tags/graphql/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/graphql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graphql-Queries</title>
+      <link>https://rookieintraining.github.io/tags/graphql-queries/</link>
+      <pubDate>Sat, 20 Jul 2024 23:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/tags/graphql-queries/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Selenium</title>
       <link>https://rookieintraining.github.io/tags/selenium/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/selenium/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testautomation</title>
+      <title>Testautomation</title>
       <link>https://rookieintraining.github.io/tags/testautomation/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/testautomation/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>webdriver</title>
+      <title>Webdriver</title>
       <link>https://rookieintraining.github.io/tags/webdriver/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/webdriver/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>webdriver protocol</title>
+      <title>Webdriver Protocol</title>
       <link>https://rookieintraining.github.io/tags/webdriver-protocol/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/webdriver-protocol/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>css</title>
+      <title>Css</title>
       <link>https://rookieintraining.github.io/tags/css/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/css/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>frameworks</title>
+      <title>Frameworks</title>
       <link>https://rookieintraining.github.io/tags/frameworks/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/frameworks/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gradle</title>
+      <title>Gradle</title>
       <link>https://rookieintraining.github.io/tags/gradle/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/gradle/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>html</title>
+      <title>Html</title>
       <link>https://rookieintraining.github.io/tags/html/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/html/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>reports</title>
+      <title>Reports</title>
       <link>https://rookieintraining.github.io/tags/reports/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/reports/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>xml</title>
+      <title>Xml</title>
       <link>https://rookieintraining.github.io/tags/xml/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      
       <guid>https://rookieintraining.github.io/tags/xml/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
