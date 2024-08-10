@@ -6,8 +6,15 @@
     <description>Recent content in Graphl-Automation on Home</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2024 23:55:00 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2024 00:55:00 +0530</lastBuildDate>
     <atom:link href="https://rookieintraining.github.io/series/graphl-automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fetch GraphQL query from an Apollo client using APQ - Part 2</title>
+      <link>https://rookieintraining.github.io/posts/debug-apq-extension-part2/</link>
+      <pubDate>Sat, 10 Aug 2024 00:55:00 +0530</pubDate>
+      <guid>https://rookieintraining.github.io/posts/debug-apq-extension-part2/</guid>
+      <description>As discussed in part-1 of this blog, when using apollo client one can boost the performance of the graphql queries by using &amp;ldquo;Automatic persisted queries&amp;rdquo; or APQ. By using APQ, the server caches each requests initiated from the browser against a hash which if not found, forces the web browser to re-send the request with the complete graphql query.&#xA;This however, adds an additional overhead in terms of automation (for fast moving development teams).</description>
+    </item>
     <item>
       <title>Fetch GraphQL query from an Apollo client using APQ - Part 1</title>
       <link>https://rookieintraining.github.io/posts/debug-apq-extension-part1/</link>
