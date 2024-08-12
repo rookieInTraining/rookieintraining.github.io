@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reports on Home</title>
-    <link>https://ishabbi.tech/tags/reports/</link>
+    <link>https://rookieintraining.github.io/tags/reports/</link>
     <description>Recent content in Reports on Home</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 17 Feb 2020 18:45:18 +0530</lastBuildDate>
-    <atom:link href="https://ishabbi.tech/tags/reports/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rookieintraining.github.io/tags/reports/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generating HTML reports for your tests via Gradle</title>
-      <link>https://ishabbi.tech/posts/gradle-reporting-easy-way/</link>
+      <link>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</link>
       <pubDate>Mon, 17 Feb 2020 18:45:18 +0530</pubDate>
-      <guid>https://ishabbi.tech/posts/gradle-reporting-easy-way/</guid>
+      <guid>https://rookieintraining.github.io/posts/gradle-reporting-easy-way/</guid>
       <description>In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time?</description>
     </item>
   </channel>
