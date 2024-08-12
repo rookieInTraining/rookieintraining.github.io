@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Home</title>
-    <link>https://rookieintraining.github.io/series/</link>
+    <link>https://ishabbi.tech/series/</link>
     <description>Recent content in Series on Home</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Aug 2024 00:55:00 +0530</lastBuildDate>
-    <atom:link href="https://rookieintraining.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ishabbi.tech/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graphl-Automation</title>
-      <link>https://rookieintraining.github.io/series/graphl-automation/</link>
+      <link>https://ishabbi.tech/series/graphl-automation/</link>
       <pubDate>Sat, 10 Aug 2024 00:55:00 +0530</pubDate>
-      <guid>https://rookieintraining.github.io/series/graphl-automation/</guid>
+      <guid>https://ishabbi.tech/series/graphl-automation/</guid>
       <description></description>
     </item>
     <item>
       <title>Selenium</title>
-      <link>https://rookieintraining.github.io/series/selenium/</link>
+      <link>https://ishabbi.tech/series/selenium/</link>
       <pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate>
-      <guid>https://rookieintraining.github.io/series/selenium/</guid>
+      <guid>https://ishabbi.tech/series/selenium/</guid>
       <description></description>
     </item>
   </channel>
