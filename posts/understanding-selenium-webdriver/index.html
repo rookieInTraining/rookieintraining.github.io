@@ -1,419 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-  Understanding the Selenium Webdriver · Home
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/ https://rookieintraining.github.io/; form-action 'self'; frame-src 'self' https://comments.app https://rookieintraining.github.io/; img-src 'self' https://*.googletagmanager.com https://rookieintraining.github.io/; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/ https://rookieintraining.github.io/; script-src 'self' 'unsafe-inline' https://*.google-analytics.com https://*.googletagmanager.com https://comments.app https://rookieintraining.github.io/; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://rookieintraining.github.io/;">
-
-
-
-
-<meta name="author" content="Ish Abbi">
-<meta name="description" content="Using CLI to automate browser actions">
-<meta name="keywords" content="blog,developer,personal,testing,automation">
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Understanding the Selenium Webdriver">
-  <meta name="twitter:description" content="Using CLI to automate browser actions">
-
-<meta property="og:url" content="https://rookieintraining.github.io/posts/understanding-selenium-webdriver/">
-  <meta property="og:site_name" content="Home">
-  <meta property="og:title" content="Understanding the Selenium Webdriver">
-  <meta property="og:description" content="Using CLI to automate browser actions">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-02-19T21:47:38+05:30">
-    <meta property="article:modified_time" content="2020-02-19T21:47:38+05:30">
-    <meta property="article:tag" content="Selenium">
-    <meta property="article:tag" content="Webdriver">
-    <meta property="article:tag" content="Testautomation">
-    <meta property="article:tag" content="Webdriver Protocol">
-
-
-
-
-<link rel="canonical" href="https://rookieintraining.github.io/posts/understanding-selenium-webdriver/">
-
-
-<link rel="preload" href="https://rookieintraining.github.io/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://rookieintraining.github.io/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://rookieintraining.github.io/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="https://rookieintraining.github.io/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css" integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="https://rookieintraining.github.io/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="https://rookieintraining.github.io/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="https://rookieintraining.github.io/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="https://rookieintraining.github.io/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="https://rookieintraining.github.io/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://rookieintraining.github.io/images/apple-touch-icon.png">
-
-<link rel="manifest" href="https://rookieintraining.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://rookieintraining.github.io/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://rookieintraining.github.io/">
-      Home
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="https://rookieintraining.github.io/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="https://rookieintraining.github.io/aboutme/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="https://rookieintraining.github.io/contactme/">Contact me</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://rookieintraining.github.io/posts/understanding-selenium-webdriver/">
-              Understanding the Selenium Webdriver
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-02-19T21:47:38&#43;05:30">
-                February 19, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              3-minute read
-            </span>
-          </div>
-          
-          <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="https://rookieintraining.github.io/categories/test-automation/">Test Automation</a></div>
-
-          <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="https://rookieintraining.github.io/tags/selenium/">Selenium</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="https://rookieintraining.github.io/tags/webdriver/">Webdriver</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="https://rookieintraining.github.io/tags/testautomation/">Testautomation</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="https://rookieintraining.github.io/tags/webdriver-protocol/">Webdriver Protocol</a>
-    </span></div>
-
-        </div>
-      </header>
-
-      <div class="post-content">
-        
-        <div style="text-align: justify">
-Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet
-in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.
-<p>With countless blogs and documentation fuelling my experiments, here is what I&rsquo;ve been able to learn of the WebDriver and the <a href="https://w3c.github.io/webdriver/"  class="external-link" target="_blank" rel="noopener">W3C WebDriver Protocol</a>.</p>
-<h2 id="what-is-a-webdriver">
-  What is a WebDriver?
-  <a class="heading-link" href="#what-is-a-webdriver">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<div style="text-align: justify">
-According to the selenium documentation :
-<blockquote>
-WebDriver drives a browser natively, as a user would, either locally or on a remote machine using the Selenium server, marks a leap forward in terms of browser automation.
-<br/>
-<br/>
-Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.
-<br/>
-<br/>
-Selenium WebDriver is a W3C Recommendation
-</blockquote>
-<p>To further simplify the understanding, I define the WebDriver as  :</p>
-<blockquote>
-WebDriver is a server sitting between the test code and the browser imitating user actions.
-<p>It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.</p>
-<p>These implementations are generally based on the browsers. Eg : Chrome and Firefox have a totally different implementation of the same set of standards. Hence, the requirement of GeckoDriver and ChromeDriver.</p>
-</blockquote>
-<h2 id="running-the-webdriver-locally-">
-  Running the WebDriver locally :
-  <a class="heading-link" href="#running-the-webdriver-locally-">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we&rsquo;ll be using Chrome whose&rsquo;s WebDriver instance can be started using the below command :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./chromedriver --port <span style="color:#ae81ff">9515</span>
-</span></span></code></pre></div><p>This starts the instance of the WebDriver which can be used to automate browser actions. Here, the driver is listening to the port <strong><em>9515</em></strong>, so all the request we make should be directed on the same port.</p>
-<h2 id="interacting-with-the-webdriver-">
-  Interacting with the WebDriver :
-  <a class="heading-link" href="#interacting-with-the-webdriver-">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>Now, in order to start a new instance of the browser, one needs to send a POST request to the <strong><em>/session</em></strong> endpoint along with the capabilities of the browser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -v -XPOST <span style="color:#e6db74">&#34;http://localhost:9515/session&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;capabilities&#34;:{&#34;firstMatch&#34;:[{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}]},&#34;desiredCapabilities&#34;:{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}}&#39;</span>
-</span></span></code></pre></div><p>The output of which gives me the session id of the browser, which in turn is used in performing the user actions. The output of the command above gave the following response :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;value&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;capabilities&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;acceptInsecureCerts&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;browserName&#34;</span>: <span style="color:#e6db74">&#34;chrome&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;browserVersion&#34;</span>: <span style="color:#e6db74">&#34;81.0.4044.138&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;chrome&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;chromedriverVersion&#34;</span>: <span style="color:#e6db74">&#34;81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776})&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;userDataDir&#34;</span>: <span style="color:#e6db74">&#34;/var/folders/mx/qj98dnwj50vfpk4gr8z0__jr0000gn/T/.com.google.Chrome.B4BYFs&#34;</span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;goog:chromeOptions&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;debuggerAddress&#34;</span>: <span style="color:#e6db74">&#34;localhost:65302&#34;</span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;networkConnectionEnabled&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;pageLoadStrategy&#34;</span>: <span style="color:#e6db74">&#34;normal&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;platformName&#34;</span>: <span style="color:#e6db74">&#34;mac os x&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;proxy&#34;</span>: {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;setWindowRect&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;strictFileInteractability&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;timeouts&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;implicit&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;pageLoad&#34;</span>: <span style="color:#ae81ff">300000</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#ae81ff">30000</span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;unhandledPromptBehavior&#34;</span>: <span style="color:#e6db74">&#34;dismiss and notify&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;webauthn:virtualAuthenticators&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;8294d507e58e23d05cb03cfd26540530&#34;</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>With the session id with me, I can now use it to further automate the browser action like navigating to a webpage, for which we need to hit the <strong><em>/session/{sessionId}/url</em></strong> endpoint along with the url as payload :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -v -XPOST <span style="color:#e6db74">&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530/url&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;url&#34; : &#34;https://www.amazon.com&#34;}&#39;</span>
-</span></span></code></pre></div><p>The response of which after successfully navigating to the url (in this case amazon) is null as per the specification if things are fine.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#66d9ef">null</span>}
-</span></span></code></pre></div><p>And the same session id can be used to delete my browser session by sending the <strong><em>DELETE</em></strong> request to the <strong><em>/session/{sessionId}</em></strong> endpoint, effectively quitting my browser :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -XDELETE <span style="color:#e6db74">&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530&#34;</span>
-</span></span></code></pre></div><p>The response of which is again null as per the specification.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#66d9ef">null</span>}
-</span></span></code></pre></div><p>The above example give better insights of the working of selenium. The session that it creates and how that is used w.r.t the automation of user actions. Hope this article finds its way for the curious soul searching for answers.</p>
-</div>
----
-
-      </div>
-
-
-      <footer>
-        
-
-<section class="see-also">
-  
-    
-    
-    
-  
-</section>
-
-
-        
-        
-        
-        
-        
-
-        <div class="comments">
-    <script>
-
-      let s = document.createElement('script');
-      s.src = 'https://comments.app/js/widget.js?3';
-      s.setAttribute('data-comments-app-website', 'SctzjgQq');
-      s.setAttribute('data-limit', '10');
-      s.setAttribute('data-height', 'auto');
-      s.setAttribute('data-color', '');
-      s.setAttribute('data-dislikes', '');
-      s.setAttribute('data-outlined', '');
-      s.setAttribute('data-colorful', '');
-      s.setAttribute('data-dark', '');
-      document.querySelector('div.comments').innerHTML = '';
-      document.querySelector('div.comments').appendChild(s);
-
-    </script>
-    </div>
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-    </div>
-
-    <footer class="footer">
-  <section class="container">
-    
-      <p>The scariest paths often lead to the most exciting places</p>
-    
-    ©
-    
-      2019 -
-    
-    2024
-    ·
-     Ish Abbi 
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-  
-  <script src="https://rookieintraining.github.io/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-  
-    
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLSP1WW1RZ"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-NLSP1WW1RZ');
-        }
-      </script>
-    
-  
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
-</html>
+<!doctype html><html lang=en><head><title>Understanding the Selenium Webdriver · Home
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta http-equiv=Content-Security-Policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/ https://rookieintraining.github.io/; form-action 'self'; frame-src 'self' https://comments.app https://rookieintraining.github.io/; img-src 'self' https://*.googletagmanager.com https://rookieintraining.github.io/; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/ https://rookieintraining.github.io/; script-src 'self' 'unsafe-inline' https://*.google-analytics.com https://*.googletagmanager.com https://comments.app https://rookieintraining.github.io/; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://rookieintraining.github.io/;"><meta name=author content="Ish Abbi"><meta name=description content="Using CLI to automate browser actions"><meta name=keywords content="blog,developer,personal,testing,automation"><meta name=twitter:card content="summary"><meta name=twitter:title content="Understanding the Selenium Webdriver"><meta name=twitter:description content="Using CLI to automate browser actions"><meta property="og:url" content="https://ishabbi.tech/posts/understanding-selenium-webdriver/"><meta property="og:site_name" content="Home"><meta property="og:title" content="Understanding the Selenium Webdriver"><meta property="og:description" content="Using CLI to automate browser actions"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-19T21:47:38+05:30"><meta property="article:modified_time" content="2020-02-19T21:47:38+05:30"><meta property="article:tag" content="Selenium"><meta property="article:tag" content="Webdriver"><meta property="article:tag" content="Testautomation"><meta property="article:tag" content="Webdriver Protocol"><link rel=canonical href=https://ishabbi.tech/posts/understanding-selenium-webdriver/><link rel=preload href=https://ishabbi.tech/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=https://ishabbi.tech/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=https://ishabbi.tech/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=https://ishabbi.tech/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://ishabbi.tech/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=https://ishabbi.tech/images/favicon.svg sizes=any><link rel=icon type=image/png href=https://ishabbi.tech/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://ishabbi.tech/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=https://ishabbi.tech/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=https://ishabbi.tech/images/apple-touch-icon.png><link rel=manifest href=https://ishabbi.tech/site.webmanifest><link rel=mask-icon href=https://ishabbi.tech/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://ishabbi.tech/>Home
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://ishabbi.tech/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=https://ishabbi.tech/aboutme/>About</a></li><li class=navigation-item><a class=navigation-link href=https://ishabbi.tech/contactme/>Contact me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://ishabbi.tech/posts/understanding-selenium-webdriver/>Understanding the Selenium Webdriver</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-19T21:47:38+05:30>February 19, 2020
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+3-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=https://ishabbi.tech/categories/test-automation/>Test Automation</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=https://ishabbi.tech/tags/selenium/>Selenium</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=https://ishabbi.tech/tags/webdriver/>Webdriver</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=https://ishabbi.tech/tags/testautomation/>Testautomation</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=https://ishabbi.tech/tags/webdriver-protocol/>Webdriver Protocol</a></span></div></div></header><div class=post-content><div style=text-align:justify>Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet
+in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.<p>With countless blogs and documentation fuelling my experiments, here is what I&rsquo;ve been able to learn of the WebDriver and the <a href=https://w3c.github.io/webdriver/ class=external-link target=_blank rel=noopener>W3C WebDriver Protocol</a>.</p><h2 id=what-is-a-webdriver>What is a WebDriver?
+<a class=heading-link href=#what-is-a-webdriver><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div style=text-align:justify>According to the selenium documentation :<blockquote>WebDriver drives a browser natively, as a user would, either locally or on a remote machine using the Selenium server, marks a leap forward in terms of browser automation.<br><br>Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.<br><br>Selenium WebDriver is a W3C Recommendation</blockquote><p>To further simplify the understanding, I define the WebDriver as :</p><blockquote>WebDriver is a server sitting between the test code and the browser imitating user actions.<p>It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.</p><p>These implementations are generally based on the browsers. Eg : Chrome and Firefox have a totally different implementation of the same set of standards. Hence, the requirement of GeckoDriver and ChromeDriver.</p></blockquote><h2 id=running-the-webdriver-locally->Running the WebDriver locally :
+<a class=heading-link href=#running-the-webdriver-locally-><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we&rsquo;ll be using Chrome whose&rsquo;s WebDriver instance can be started using the below command :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>./chromedriver --port <span style=color:#ae81ff>9515</span>
+</span></span></code></pre></div><p>This starts the instance of the WebDriver which can be used to automate browser actions. Here, the driver is listening to the port <strong><em>9515</em></strong>, so all the request we make should be directed on the same port.</p><h2 id=interacting-with-the-webdriver->Interacting with the WebDriver :
+<a class=heading-link href=#interacting-with-the-webdriver-><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Now, in order to start a new instance of the browser, one needs to send a POST request to the <strong><em>/session</em></strong> endpoint along with the capabilities of the browser.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>curl -v -XPOST <span style=color:#e6db74>&#34;http://localhost:9515/session&#34;</span> -d <span style=color:#e6db74>&#39;{&#34;capabilities&#34;:{&#34;firstMatch&#34;:[{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}]},&#34;desiredCapabilities&#34;:{&#34;browserName&#34;:&#34;chrome&#34;,&#34;goog:chromeOptions&#34;:{&#34;args&#34;:[],&#34;excludeSwitches&#34;:[&#34;enable-automation&#34;],&#34;extensions&#34;:[],&#34;prefs&#34;:{&#34;credentials_enable_service&#34;:false,&#34;profile.default_content_setting_values.notifications&#34;:1,&#34;profile.default_content_settings.popups&#34;:0,&#34;profile.password_manager_enabled&#34;:false}}}}&#39;</span>
+</span></span></code></pre></div><p>The output of which gives me the session id of the browser, which in turn is used in performing the user actions. The output of the command above gave the following response :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;value&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;capabilities&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;acceptInsecureCerts&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;browserName&#34;</span>: <span style=color:#e6db74>&#34;chrome&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;browserVersion&#34;</span>: <span style=color:#e6db74>&#34;81.0.4044.138&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;chrome&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;chromedriverVersion&#34;</span>: <span style=color:#e6db74>&#34;81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776})&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;userDataDir&#34;</span>: <span style=color:#e6db74>&#34;/var/folders/mx/qj98dnwj50vfpk4gr8z0__jr0000gn/T/.com.google.Chrome.B4BYFs&#34;</span>
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;goog:chromeOptions&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;debuggerAddress&#34;</span>: <span style=color:#e6db74>&#34;localhost:65302&#34;</span>
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;networkConnectionEnabled&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;pageLoadStrategy&#34;</span>: <span style=color:#e6db74>&#34;normal&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;platformName&#34;</span>: <span style=color:#e6db74>&#34;mac os x&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;proxy&#34;</span>: {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;setWindowRect&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;strictFileInteractability&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;timeouts&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;implicit&#34;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;pageLoad&#34;</span>: <span style=color:#ae81ff>300000</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;script&#34;</span>: <span style=color:#ae81ff>30000</span>
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;unhandledPromptBehavior&#34;</span>: <span style=color:#e6db74>&#34;dismiss and notify&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;webauthn:virtualAuthenticators&#34;</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;sessionId&#34;</span>: <span style=color:#e6db74>&#34;8294d507e58e23d05cb03cfd26540530&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>With the session id with me, I can now use it to further automate the browser action like navigating to a webpage, for which we need to hit the <strong><em>/session/{sessionId}/url</em></strong> endpoint along with the url as payload :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>curl -v -XPOST <span style=color:#e6db74>&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530/url&#34;</span> -d <span style=color:#e6db74>&#39;{&#34;url&#34; : &#34;https://www.amazon.com&#34;}&#39;</span>
+</span></span></code></pre></div><p>The response of which after successfully navigating to the url (in this case amazon) is null as per the specification if things are fine.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{<span style=color:#f92672>&#34;value&#34;</span>:<span style=color:#66d9ef>null</span>}
+</span></span></code></pre></div><p>And the same session id can be used to delete my browser session by sending the <strong><em>DELETE</em></strong> request to the <strong><em>/session/{sessionId}</em></strong> endpoint, effectively quitting my browser :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>curl -XDELETE <span style=color:#e6db74>&#34;http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530&#34;</span>
+</span></span></code></pre></div><p>The response of which is again null as per the specification.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{<span style=color:#f92672>&#34;value&#34;</span>:<span style=color:#66d9ef>null</span>}
+</span></span></code></pre></div><p>The above example give better insights of the working of selenium. The session that it creates and how that is used w.r.t the automation of user actions. Hope this article finds its way for the curious soul searching for answers.</p></div>---</div><footer><section class=see-also></section><div class=comments><script>let s=document.createElement("script");s.src="https://comments.app/js/widget.js?3",s.setAttribute("data-comments-app-website","SctzjgQq"),s.setAttribute("data-limit","10"),s.setAttribute("data-height","auto"),s.setAttribute("data-color",""),s.setAttribute("data-dislikes",""),s.setAttribute("data-outlined",""),s.setAttribute("data-colorful",""),s.setAttribute("data-dark",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article></section></div><footer class=footer><section class=container><p>The scariest paths often lead to the most exciting places</p>©
+2019 -
+2024
+·
+Ish Abbi</section></footer></main><script src=https://ishabbi.tech/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-NLSP1WW1RZ"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-NLSP1WW1RZ")}</script></body></html>
