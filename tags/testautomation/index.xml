@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Testautomation on Ish's Blog</title><link>https://ishabbi.tech/tags/testautomation/</link><description>Recent content in Testautomation on Ish's Blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 19 Feb 2020 21:47:38 +0530</lastBuildDate><atom:link href="https://ishabbi.tech/tags/testautomation/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding the Selenium Webdriver</title><link>https://ishabbi.tech/posts/understanding-selenium-webdriver/</link><pubDate>Wed, 19 Feb 2020 21:47:38 +0530</pubDate><guid>https://ishabbi.tech/posts/understanding-selenium-webdriver/</guid><description>&lt;div style="text-align: justify">
-Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet
-in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.
-&lt;p>With countless blogs and documentation fuelling my experiments, here is what I&amp;rsquo;ve been able to learn of the WebDriver and the &lt;a href="https://w3c.github.io/webdriver/" class="external-link" target="_blank" rel="noopener">W3C WebDriver Protocol&lt;/a>.&lt;/p>
-&lt;h2 id="what-is-a-webdriver">
- What is a WebDriver?
- &lt;a class="heading-link" href="#what-is-a-webdriver">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
+&lt;p>Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet
+in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.&lt;/p>
+&lt;p>With countless blogs and documentation fuelling my experiments, here is what I&amp;rsquo;ve been able to learn of the WebDriver and the &lt;a href="https://w3c.github.io/webdriver/">W3C WebDriver Protocol&lt;/a>.&lt;/p>
+&lt;h2 id="what-is-a-webdriver">What is a WebDriver?&lt;/h2>
 &lt;div style="text-align: justify">
-According to the selenium documentation :
-&lt;blockquote>
-WebDriver drives a browser natively, as a user would, either locally or on a remote machine using the Selenium server, marks a leap forward in terms of browser automation.
-&lt;br/>
-&lt;br/>
-Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.
-&lt;br/>
-&lt;br/>
-Selenium WebDriver is a W3C Recommendation
-&lt;/blockquote>
-&lt;p>To further simplify the understanding, I define the WebDriver as :&lt;/p></description></item></channel></rss>
+&lt;p>According to the selenium documentation :&lt;/p></description></item></channel></rss>
