@@ -1,0 +1,1023 @@
+# Ish's Blog
+
+> Welcome to Ish's blog. Find interesting articles and snippets about testing, software engineering and many more.
+
+This file contains the full text of every page on https://ishabbi.tech/, converted to Markdown. The index is at https://ishabbi.tech/llms.txt.
+
+---
+
+# The problem with my username and the thought I had behind it
+
+> For years I've been using a username because I felt it would keep me humble
+
+- URL: https://ishabbi.tech/posts/the-problem-with-my-username/
+- Published: 2026-06-12
+- Updated: 2026-10-26
+- Tags: Personal, Journals
+
+“***rookieInTraining!!***” For years, I’ve been using this username on my GitHub, Stack Overflow, and even this website. Initially, I had planned to keep it as “*the-rookie-in-training*,” but I dropped the “*the*” and removed the dashes to keep it short (how the mind works in your 20s).
+
+What was sometimes confusing to people reading my username was a deep ideology to which I related—something that shaped my thinking when I started my career in the industry. “The-Rookie-In-Training” was supposed to capture a philosophy: no matter how well you excel in professional or personal areas of life, there will always be a new aspect that humbles you and makes you feel like a rookie. Only by learning from these experiences and restarting your training toward mastery can you grow. I kept this to signal curiosity and a willingness to learn in any phase of my life.
+
+For years, I’ve embraced this ideology—it kept me humble despite the challenges I overcame, the changes I witnessed, and the achievements I earned. But an inherent problem grew over time. The term “rookie” was often mistaken for “self-defeating,” implying I’d never be capable or shouldn’t strive for excellence.
+
+So today, I’ve finally found the answer to this self-defeating philosophy I had in my 20s. My username never meant I’d remain a rookie forever. My ideology was conveying that I’d always chase mastery, no matter what—that my expertise should remain in motion as new life experiences shape me. I’ll never let anything impact me so deeply that it shakes my core values.
+
+My younger self had a dream—something he shaped while navigating a range of emotions and troubles (which I laugh at now). That dream, that pursuit of mastery, must not fade. The fire must continue to burn. I’m committed to making both my future self (30 years from now) and my younger self (from 15 years ago) proud.
+
+So I’m declaring this to the universe, to my God, and to the supreme force within me: I will master my craft and work. I will cultivate excellence in my personal and professional life. I will ensure my learnings remain open-source. My path to mastery is perpetual—it is now—in motion!
+
+
+---
+
+# Scoring your accessibility observations
+
+> Learn ways of how one can quantify the results of your accessibility tests into a score
+
+- URL: https://ishabbi.tech/posts/a11y-score-cards/
+- Published: 2025-04-20
+- Updated: 2026-10-26
+- Tags: A11y, Accessbility, Non-Functional, Testing, Compliance
+
+In today’s digital-first world, accessibility plays a pivotal role in promoting diversity and inclusivity across communication platforms and digital tools. For the internet, this movement began with the W3C’s first [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) (WCAG), aimed at making the web more accessible for everyone.
+
+While WCAG 1.0, released in 1999, laid the foundation for web accessibility. Its successor, WCAG 2.0, introduced a more robust and technology-agnostic framework based on four core principles — Perceivable, Operable, Understandable, and Robust (POUR) — to better support the needs of users with disabilities and improve digital accessibility standards.
+
+If you work with SaaS platforms, government portals, or internal tools, chances are you’ve encountered accessibility compliance testing. With evolving guidelines — such as the European Accessibility Act, ADA, and Section 508 — there’s a renewed emphasis on aligning digital products with these standards.
+
+In line with the standard, organizations can conduct internal accessibility assessments or engage external vendors to perform the testing on their behalf. The findings from these evaluations should then be documented in a Voluntary Product Accessibility Template (VPAT), which helps customers assess how well the system conforms to accessibility requirements.
+
+Additionally, there are automated tools such as **Lighthouse, WAVE, Web Accessibility Insights**, etc which runs static checks and generate a report highlighting the areas of improvement. Lighthouse – one of my personal favourites – not only performs static analysis but also uses [weighted averages](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) to generate an accessibility score based on the severity and type of violations.
+
+While VPATs are useful for customers, internal stakeholders and management often require deeper insights into how accessibility is implemented, monitored, and improved within the organization. VPATs typically lack a scoring mechanism or quantifiable metrics that provide a clear, overall picture of WCAG conformance.
+
+* * *
+
+## How Do We Measure Accessibility Observations Effectively?
+
+This brings us to today’s discussion — how do we measure accessibility observations effectively? How can we establish a scoring system that offers stakeholders a holistic view of accessibility conformance without having to dig through VPATs or detailed automated reports?
+
+To design an effective scorecard, we need metrics that can be mapped to dimensions — in other words, a label mapped to a measurable quantity. Fortunately, as mentioned earlier, WCAG 2.0 introduced four key principles for accessibility, popularly known as POUR: :
+
+- **Perceivable** : Information must be perceivable to people using only one of their senses, so they understand all related content.
+- **Operable** : End users must be able to interact with all webpage elements. For instance, your website should be easily navigable with just a keyboard or voice controls for non-mouse users.
+- **Understandable** : The principle is just what it seems—end users must be able to understand web page content and functionality information.
+- **Robust** : Your website must effectively communicate information to all users, including users of assistive technologies, and remain compatible with evolving technologies and user needs.
+
+All sections and levels of conformance fall under these four principles, making them ideal candidates to serve as the primary dimensions for our accessibility scorecard.
+
+The core approach involves assigning scores to each section under the POUR categories and normalizing them to calculate a comprehensive accessibility score.
+
+Once these scores are computed, they can be aggregated to offer a unified metric that reflects the overall accessibility posture of a product or platform. This score can then be used to track progress over time, identify areas that require focused improvements, and communicate accessibility status to both internal stakeholders and external audiences in a simple, quantifiable manner.
+
+To ensure accuracy and consistency, it is essential to define clear scoring criteria for each principle. For example, automated tools may contribute scores for perceivable and operable dimensions, while manual reviews may be needed to assess understandability and robustness more effectively. Combining these inputs creates a balanced, reliable scorecard for holistic accessibility measurement.
+
+## Designing the Accessibility Scorecard
+
+The core approach involves assigning scores to each section under the POUR categories and normalizing them to calculate a comprehensive accessibility score.
+
+### Scoring
+
+Each accessibility check — whether automated or manual — should be mapped to one of the POUR principles (Perceivable, Operable, Understandable, Robust). Every issue or observation can then be assigned a severity score based on its impact on user experience. For example:
+
+- Critical violations (e.g. no keyboard navigation) → High score (indicating serious issue)
+- Minor issues (e.g. missing alt text for decorative images) → Lower score
+
+### Normalization
+
+To ensure comparability across principles and pages, individual scores should be normalized. This process adjusts the raw scores into a common scale, typically between 0 and 1 or 0 and 100, making them easier to interpret and aggregate. In our case, we’ll normalize the score on a scale of 5.
+
+### Aggregation
+
+Once normalized, scores from all POUR categories can be combined to generate an overall accessibility score. You can choose to apply weights to each principle based on its importance or keep them equally weighted for simplicity. This aggregated score reflects the overall accessibility posture of the product or platform. Insights and Reporting
+
+The final score, along with category-wise breakdowns, serves multiple purposes:
+
+- Track progress over time by comparing scores across releases.
+- Identify focus areas by spotting low-performing principles or sections.
+- Communicate status clearly to stakeholders through dashboards and reports.
+
+### Example
+
+| **Principle**      | **Total Checks** | **Issues Found** | **Severity Weight** | **Raw Score** | **Normalized Score (out of 5)** |
+|--------------------|------------------|------------------|---------------------|---------------|---------------------------------|
+| **Perceivable**    | 40               | 5                | High                | 5/40 = 0.125  | 4.4 / 5                         |
+| **Operable**       | 30               | 2                | Medium              | 2/30 = 0.066  | 4.7 / 5                         |
+| **Understandable** | 20               | 3                | Low                 | 3/20 = 0.15   | 4.3 / 5                         |
+| **Robust**         | 10               | 1                | High                | 1/10 = 0.10   | 4.5 / 5                         |
+| **Overall Score**  | —                | —                | —                   | —             | **4.5 / 5 (Average)**           |
+
+### How the scoring works (formula):
+
+$$ Normalized\ Score\ (out\ of\ 5)=(1−Raw\ Score)×5 $$
+
+For example:
+
+```
+* Perceivable → Raw Score = 0.125 → Normalized Score = (1 - 0.125) × 5 = 4.4
+* Operable → Raw Score = 0.066 → Normalized Score = 4.7
+* Understandable → Raw Score = 0.15 → Normalized Score = 4.3
+* Robust → Raw Score = 0.10 → Normalized Score = 4.5
+```
+
+The overall accessibility score is the average of the 4 values = 4.5 / 5.
+
+By structuring accessibility observations into quantifiable scores, organizations can visualize these metrics, enabling teams to move beyond qualitative statements and provide actionable, data-driven insights that drive continuous improvement.
+
+
+---
+
+# QA Metrics: Leading and Lagging Indicators Every Tester Should Know
+
+> You're a QA leader? Planning on being one? You've been asked for your north-star metric?
+
+- URL: https://ishabbi.tech/posts/qa-best-practices-underdogs/
+- Published: 2024-08-26
+- Updated: 2026-10-26
+- Tags: Testing, Testing Practices, Test Methodologies
+
+Hey there, fellow techies and aspiring QA professionals! 👋 Today, we’re embarking on an in-depth journey through the world of Quality Assurance metrics. We’ll be unpacking the dynamic duo of leading and lagging indicators, exploring their significance, and diving into some fascinating testing phenomena. So grab your favorite debugging tool (and maybe a coffee), because this deep dive into the QA landscape is going to be both comprehensive and enlightening!
+
+## The Metric Tango: Leading vs. Lagging
+
+Before we dive into the specifics, let’s break down what we mean by leading and lagging indicators. Think of them as the fortune tellers and historians of the QA world:
+
+- **Leading Indicators**: These are the crystal balls of QA. They help predict future performance and potential issues. They’re proactive measures that give you insights into what might happen, allowing you to adjust your strategy before problems occur.
+- **Lagging Indicators**: These are the rearview mirrors. They show us what’s already happened and help us understand the results of our efforts. While they don’t predict the future, they’re crucial for assessing the effectiveness of your QA processes and identifying areas for improvement.
+
+Understanding both types of indicators is crucial for a well-rounded QA strategy. It’s like having both a weather forecast and a weather report – one helps you prepare, the other helps you understand what actually happened.
+
+Now, let’s explore some key metrics in each category, complete with real-world examples and practical tips for implementation.
+
+## Leading Indicators: Peering into the QA Crystal Ball
+
+### 1. Test Coverage Percentage
+
+**What it is**: This metric tells us how much of our codebase is being tested by our automated test suite.
+
+**Why it matters**: Higher coverage usually means fewer surprises down the road. It’s like having a safety net that catches potential issues before they become real problems.
+
+**Real-world example**: Imagine you’re working on an e-commerce platform. Your team has achieved 85% test coverage. This means that 85% of your code is being exercised by your automated tests. However, you notice that the payment processing module only has 60% coverage. This insight allows you to prioritize writing more tests for this critical area, potentially preventing costly bugs in the payment system.
+
+**Implementation tip**: Use code coverage tools like JaCoCo for Java or Istanbul for JavaScript to automatically calculate and report your test coverage. Set up alerts for when coverage drops below a certain threshold.
+
+**Caveat**: Remember, 100% coverage doesn’t guarantee bug-free code – it’s about quality, not just quantity! Some parts of your code might need more thorough testing than others.
+
+### 2. Defect Detection Rate
+
+**What it is**: This metric measures the number of defects found during testing phases compared to the total number of defects (including those found in production).
+
+**Why it matters**: A high defect detection rate during testing phases is like finding a needle in a haystack before it pokes someone. It’s a good sign that your testing processes are effective at catching issues early.
+
+**Real-world example**: Your team is developing a new feature for a social media app. During the testing phase, you detect 45 defects. After release, users report 5 more defects. Your defect detection rate would be 45 / (45 + 5) = 90%. This high rate indicates that your testing process is quite effective, but there’s still room for improvement.
+
+**Implementation tip**: Track defects found during each testing phase and compare them with defects reported post-release. Use a tool like Jira or Azure DevOps to categorize and track defects throughout the development lifecycle.
+
+### 3. Automation Script Development Velocity
+
+**What it is**: This metric measures how quickly your team is creating and updating automated tests.
+
+**Why it matters**: In today’s fast-paced tech world, automation is key. The faster you automate, the more time you save for complex, exploratory testing.
+
+**Real-world example**: Your team is working on a mobile banking app. You set a goal to automate 10 new test cases per sprint. By tracking this metric, you notice that in the first few sprints, you’re only managing 6-7 new automated tests. This insight helps you identify bottlenecks in your automation process, perhaps leading to additional training or tools to improve your velocity.
+
+**Implementation tip**: Use your project management tool to track the number of automated test cases created or updated in each sprint. Look for trends and set realistic goals for improvement.
+
+### 4. Time to Create Test Cases
+
+**What it is**: This metric measures the average time it takes to create comprehensive test cases for new features.
+
+**Why it matters**: The quicker your team can create thorough test cases, the faster you can start testing and the more agile your development process becomes.
+
+**Real-world example**: You’re working on a CRM system, and a new feature for managing customer interactions is being developed. You track that it takes an average of 4 hours to create a full set of test cases for each user story. By breaking down this time, you realize that a significant portion is spent on setting up test data. This insight leads you to create a more efficient test data management system, reducing your average time to 2.5 hours per user story.
+
+**Implementation tip**: Use time tracking features in your project management tool to monitor how long it takes to create test cases for each feature or user story. Look for patterns and areas where you can streamline the process.
+
+### 5. Number of Test Cases Reviewed and Approved
+
+**What it is**: This metric tracks how many test cases go through a peer review process before being executed.
+
+**Why it matters**: Quality control for your quality control! This metric ensures that your test cases are up to snuff before execution begins. It’s like peer-reviewing your battle plan before charging into the bug war.
+
+**Real-world example**: Your team is developing a complex financial reporting system. You implement a policy that all test cases must be reviewed by at least one other QA team member before execution. You track that in the first month, only 60% of test cases are being reviewed. By highlighting this metric and its importance, you manage to increase it to 95% over the next two months, resulting in more robust and effective testing.
+
+**Implementation tip**: Implement a formal review process in your test case management tool. Track the number of test cases that go through this process versus those that don’t. Regularly review this metric with your team to ensure high compliance.
+
+## Lagging Indicators: Learning from the QA History Books
+
+### 1. Number of Defects Found in Production
+
+**What it is**: This metric counts the number of bugs that slip through your testing process and are discovered by end-users in the production environment.
+
+**Why it matters**: The ultimate “oops” metric. While we aim to minimize this, each defect that slips through is a learning opportunity. It’s not just about the number, but understanding the ‘why’ behind each escape artist bug.
+
+**Real-world example**: You release a new version of your project management software. Within the first week, users report 12 defects. By analyzing these defects, you realize that 8 of them are related to edge cases in the new time-tracking feature. This insight helps you improve your test case design to include more edge cases and unusual scenarios in future testing cycles.
+
+**Implementation tip**: Set up a system to categorize and analyze production defects. Look for patterns in terms of feature areas, types of defects, or user workflows that are prone to issues.
+
+### 2. Customer-Reported Issues
+
+**What it is**: This metric tracks the number and nature of issues reported directly by your users.
+
+**Why it matters**: The voice of the user is loud and clear here. This metric not only shows how many issues slipped past your defenses but also highlights what matters most to your users.
+
+**Real-world example**: Your team releases a new version of a photo editing app. In the first month, you receive 50 customer-reported issues. Analyzing these, you find that 30 of them are related to the new filter feature being slow on older devices. This user feedback helps you prioritize performance optimization for this feature in the next sprint.
+
+**Implementation tip**: Implement a robust customer feedback system. Categorize issues by feature area, severity, and frequency. Regularly review this data with both your QA and development teams to inform testing and development priorities.
+
+### 3. Test Execution Pass/Fail Rates
+
+**What it is**: This metric shows the proportion of your tests that pass versus those that fail during each test execution cycle.
+
+**Why it matters**: This is the report card for your test suite. A high pass rate might mean your product is solid, or it could mean your tests aren’t tough enough. It’s all about balance and continuous improvement.
+
+**Real-world example**: In your continuous integration pipeline for a weather forecasting app, you notice that your test pass rate is consistently at 98%. While this seems great, a deeper dive reveals that your tests aren’t covering extreme weather scenarios effectively. By adding more rigorous tests, your pass rate initially drops to 92%, but it leads to a more robust and reliable application.
+
+**Implementation tip**: Use your CI/CD tools to track pass/fail rates over time. Look for sudden changes or consistent patterns. Regularly review and update your test suite to ensure it’s providing valuable insights.
+
+### 4. Time Spent on Bug Fixes Post-Release
+
+**What it is**: This metric measures the amount of time and resources devoted to fixing bugs after a product or feature has been released.
+
+**Why it matters**: Nobody likes unexpected overtime. This metric shows how much effort goes into putting out fires after release. The goal? Minimize this time by catching and squashing bugs earlier.
+
+**Real-world example**: After releasing a major update to your team collaboration tool, your developers end up spending 30% of their time in the next sprint fixing production issues. By tracking this metric, you realize that most of these issues are related to data migration problems. This leads to implementing more thorough pre-release data migration testing in future updates, reducing post-release bug fix time to under 10% in subsequent releases.
+
+**Implementation tip**: Use your project management tool to track time spent on different types of tasks. Create a specific category for post-release bug fixes and monitor it closely after each release.
+
+### 5. Release Cycle Time
+
+**What it is**: This metric measures the time it takes from code commit to production deployment.
+
+**Why it matters**: From code commit to production deployment, this metric gives you the big picture of your development and QA process efficiency. Shorter cycle times often mean happier developers, testers, and customers!
+
+**Real-world example**: Your team is working on an online learning platform. Initially, your release cycle time is 4 weeks. By analyzing this metric, you identify bottlenecks in your QA process, particularly in test environment setup and manual regression testing. By implementing infrastructure-as-code for test environments and increasing automation coverage, you manage to reduce your cycle time to 2 weeks, allowing for more frequent feature releases and faster bug fixes.
+
+**Implementation tip**: Track the timestamps of code commits and production deployments. Break down the cycle into phases (development, testing, staging, deployment) to identify where you can make improvements.
+
+## The QA Plot Thickens: Understanding Key Testing Phenomena
+
+Now that we’ve covered our key metrics, let’s spice things up with some intriguing testing phenomena that every QA enthusiast should know:
+
+### Defect Leakage
+
+**What it is**: This is the sneaky process by which bugs slip through your testing net and make it to production.
+
+**Why it matters**: It’s like playing whack-a-mole, but the moles are crafty bugs. Understanding and reducing defect leakage is crucial for maintaining software quality and user satisfaction.
+
+**Real-world example**: Your team develops a calendar app. Despite thorough testing, users report that recurring events set for the 31st of the month aren’t showing up correctly in months with fewer than 31 days. This defect leakage occurred because your test cases didn’t account for this specific edge case.
+
+**How to address it**:
+
+1. Improve test case design to cover more edge cases and user scenarios.
+2. Implement robust code review processes.
+3. Use static code analysis tools to catch potential issues early.
+4. Conduct thorough regression testing, especially for core functionalities.
+
+### Defect Clustering
+
+**What it is**: This phenomenon observes that a small number of modules often contain a large proportion of defects.
+
+**Why it matters**: Understanding defect clustering can help focus your testing efforts – if you find a bug, its friends might be nearby!
+
+**Real-world example**: In your e-commerce platform, you notice that 70% of the reported bugs are coming from the checkout process, which only accounts for about 15% of the total codebase. This is a clear case of defect clustering.
+
+**How to leverage it**:
+
+1. Identify modules with high defect density and prioritize them for testing.
+2. Conduct more thorough code reviews and pair programming sessions for these modules.
+3. Consider refactoring or redesigning problematic modules.
+4. Allocate more experienced developers to work on these areas.
+
+### Pesticide Paradox
+
+**What it is**: The pesticide paradox in testing refers to the phenomenon where the repeated use of the same test cases leads to a situation where these tests no longer find new bugs.
+
+**Why it matters**: Just like pests becoming resistant to pesticides, software can become ‘resistant’ to your tests. This phenomenon highlights the need for continuous evolution in your testing approach.
+
+**Real-world example**: Your team has been using the same set of automated tests for your user authentication system for the past year. While these tests initially caught several bugs, they haven’t found any new issues in the last few months. However, a penetration testing exercise reveals several security vulnerabilities that your regular tests didn’t catch.
+
+**How to overcome it**:
+
+1. Regularly review and update your test cases.
+2. Incorporate exploratory testing sessions to uncover unexpected issues.
+3. Rotate testing responsibilities among team members to bring fresh perspectives.
+4. Use techniques like mutation testing to evaluate and improve test effectiveness.
+
+## Putting It All Together: The QA Metrics Symphony
+
+Understanding these leading and lagging indicators, along with key testing phenomena, is like learning to conduct an orchestra. Each metric and concept plays its part in the grand performance of delivering high-quality software.
+
+Here’s how you can create a harmonious QA strategy using these insights:
+
+1. **Balance your focus**: Pay attention to both leading and lagging indicators. Leading indicators help you prevent issues, while lagging indicators help you learn from past experiences.
+2. **Customize for your context**: Not all metrics will be equally important for every project. Tailor your focus based on your product, team, and organizational goals.
+3. **Look for connections**: Often, there are relationships between different metrics. For example, improving your test coverage (a leading indicator) might lead to a reduction in production defects (a lagging indicator).
+4. **Use metrics to drive improvement**: Don’t just collect data for the sake of it. Use your metrics to identify areas for improvement and track the effectiveness of your changes.
+5. **Remember the human element**: While metrics are powerful tools, they don’t tell the whole story. Always consider the context and listen to the insights of your team members.
+6. **Stay agile**: The software development landscape is always evolving. Be prepared to adapt your metrics and testing strategies as new technologies and methodologies emerge.
+
+## Wrapping Up: Your QA Journey Continues
+
+Remember, these metrics and phenomena aren’t just numbers and concepts to impress management (though they can do that too!). They’re tools to help you understand, predict, and improve your QA processes. Use them wisely, and you’ll be well on your way to QA stardom!
+
+As you continue your journey in the world of software testing, keep exploring, keep learning, and keep questioning. The field of QA is vast and ever-changing, offering endless opportunities for growth and innovation.
+
+So, whether you’re a seasoned tester or just starting your career in QA, keep these metrics and concepts in your toolkit. They’ll help you navigate the complex world of software quality with confidence and finesse.
+
+Happy testing, and may your bug counts always be low and your test coverage high! 🐞✨
+
+P.S. Remember, in the world of QA, the only constant is change. Stay curious, stay adaptable, and never stop learning!
+
+
+---
+
+# Fetch GraphQL query from an Apollo client using APQ - Part 2
+
+> Struggling to automate GraphQL APIs or fetch queries? Learn about APQ and how to intercept these requests in this guide to GraphQL automation.
+
+- URL: https://ishabbi.tech/posts/debug-apq-extension-part2/
+- Published: 2024-08-10
+- Updated: 2026-10-26
+- Tags: Graphql, Apollo-Graphql, Apq, Chrome-Extensions, Debugging, Graphql-Queries
+
+As discussed in [part-1](https://ishabbi.tech/posts/debug-apq-extension-part1/) of this blog, when using apollo client one can boost the performance of the graphql queries by using **“Automatic persisted queries” or APQ**. By using APQ, the server caches each requests initiated from the browser against a hash which if not found, forces the web browser to re-send the request with the complete graphql query.
+
+This however, adds an additional overhead in terms of automation (for fast moving development teams). Automation testers are required to:
+
+- Run the server without APQ
+- Navigate the frontend source code to find the queries (*praying🙏 secretly that it contains minimal fragments!*)
+- Collaborate with the development teams to share the payload
+
+The aforementioned reasons were enough for me to figure out a solution that acts as an enabler for teams and shorten the time to figure out the query.
+
+## Introducing APQ-Debugger
+
+Though still in beta, the sole purpose of APQ-Debugger is to intercept the graphql network requests and force the client to re-send the intercepted network request; this time including the actual query string. So, when used with the chrome extension. The example shared in [part-1](https://ishabbi.tech/posts/debug-apq-extension-part1/#apollo-client-and-apq) above becomes:
+
+```json
+{
+    "operationName": "NotificationsQuery",
+    "variables": {
+        "k1":"v1",
+        "k2":"v2"
+    },
+    "extensions": {
+      "persistedQuery": {
+        "version": 1,
+        "sha256Hash": "<the same long hash which you would not want on blog sites! but with a twist!>"
+      }
+    },
+    "query": "fragment NotificationAttribute on NotificationAttribute {\n  name\n  value\n  __typename\n}\n\nfragment NotificationBody on NotificationPhrase {\n  accessibilityLabel\n  ...EgdsItems\n  items {\n    __typename\n    text\n    styles\n    ...NotificationLinkNodeWithIcon\n  }\n  ...EgdsTextItems\n  __typename\n}\n\nfragment NotificationContainer on NotificationContainer {\n  layout\n  theme {\n    ...NotificationTheme\n    __typename\n  }\n  view\n  __typename\n}\n\nfragment NotificationTheme on NotificationTheme {\n  ...NotificationBannerTheme\n  ...NotificationCardTheme\n  __typename\n}\n\nfragment NotificationBannerTheme on NotificationBannerTheme {\n  bannerTheme: themeValue\n  __typename\n}\n\nfragment NotificationCardTheme on NotificationCardTheme {\n  cardBorder\n  personalizedTheme\n  themeValue\n  __typename\n}\n\nfragment NotificationContainerLink on NotificationContainerLink {\n  uri {\n    __typename\n    value\n  }\n  target\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationDismiss on NotificationDismiss {\n  icon {\n    ...NotificationIcon\n    __typename\n  }\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationImage on Image {\n  description\n  url\n  __typename\n}\n\nfragment NotificationLegalText on NotificationPhrase {\n  accessibilityLabel\n  ...NotificationItems\n  ...EgdsTextItems\n  __typename\n}\n\nfragment NotificationLinks on NotificationPhraseLinkNode {\n  id\n  type\n  text\n  uri {\n    __typename\n    value\n  }\n  linkStyle\n  linkTheme\n  styles\n  target\n  icon {\n    ...NotificationIcon\n    __typename\n  }\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationSimpleSubBody on NotificationSimpleBody {\n  title {\n    ...TitleParts\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationMultiSubBody on NotificationMultiBody {\n  title {\n    ...TitleParts\n    __typename\n  }\n  body {\n    ...TitleParts\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationMessageCardSubBody on NotificationMessageCard {\n  title {\n    ...TitleParts\n    __typename\n  }\n  body {\n    ...TitleParts\n    __typename\n  }\n  graphicElement {\n    ... on Icon {\n      description\n      id\n      size\n      theme\n      title\n      token\n      withBackground\n      __typename\n    }\n    ... on Mark {\n      description\n      id\n      markSize: size\n      url {\n        ... on HttpURI {\n          relativePath\n          value\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    ... on Illustration {\n      description\n      id\n      link: url\n      __typename\n    }\n    __typename\n  }\n  links {\n    id\n    text\n    type\n    uri {\n      value\n      __typename\n    }\n    linkStyle\n    linkTheme\n    target\n    actions {\n      ...NotificationActionFragment\n      __typename\n    }\n    __typename\n  }\n  layout\n  __typename\n}\n\nfragment NotificationSwitch on EGDSStandardSwitch {\n  enabled\n  checked\n  checkedLabel\n  checkedDescription\n  checkedAccessibilityLabel\n  uncheckedLabel\n  uncheckedDescription\n  uncheckedAccessibilityLabel\n  label\n  checkedAnalytics {\n    referrerId\n    linkName\n    __typename\n  }\n  uncheckedAnalytics {\n    referrerId\n    linkName\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationTitle on NotificationPhrase {\n  accessibilityLabel\n  completeText\n  ...EgdsItems\n  ...EgdsTextItems\n  items {\n    __typename\n    text\n    styles\n    ...NotificationLinkNode\n  }\n  __typename\n}\n\nfragment NotificationForm on NotificationForm {\n  __typename\n  title\n  sections {\n    __typename\n    title\n    fields {\n      __typename\n      ...NotificationTextInputFieldForm\n      ...NotificationSubmitButtonForm\n      ...NotificationSelectionFieldForm\n    }\n  }\n  feedbackMessages {\n    __typename\n    name\n    title\n    text\n    displayType\n    level\n  }\n  successFormAnalytics {\n    ...NotificationActionFragment\n    __typename\n  }\n  errorFormAnalytics {\n    ...NotificationActionFragment\n    __typename\n  }\n}\n\nfragment TitleParts on NotificationPhrase {\n  accessibilityLabel\n  completeText\n  ...EgdsItems\n  __typename\n}\n\nfragment NotificationActionFragment on NotificationAction {\n  __typename\n  ... on NotificationAnalytics {\n    __typename\n    description\n    referrerId\n    schema {\n      __typename\n      name\n      messageContent {\n        __typename\n        name\n        value\n      }\n    }\n  }\n  ... on NotificationAnalyticsEgClickstream {\n    __typename\n    description\n    event {\n      __typename\n      eventName\n      eventType\n      eventCategory\n      eventVersion\n      actionLocation\n    }\n    schema {\n      name\n      messageContent {\n        name\n        value\n        __typename\n      }\n      __typename\n    }\n  }\n  ... on NotificationCookie {\n    __typename\n    name\n    value\n    expires\n  }\n}\n\nfragment NotificationItems on NotificationPhrase {\n  items {\n    __typename\n    text\n    styles\n    ...NotificationLinkNode\n    ...NotificationLinkNodeWithIcon\n  }\n  __typename\n}\n\nfragment EgdsItems on NotificationPhrase {\n  egdsItems {\n    ... on NotificationEGDSTextNode {\n      text\n      theme\n      weight\n      __typename\n    }\n    ... on NotificationEGDSLinkNode {\n      action {\n        accessibility\n        analytics {\n          linkName\n          referrerId\n          __typename\n        }\n        resource {\n          value\n          __typename\n        }\n        target\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment EgdsTextItems on NotificationPhrase {\n  egdsTextItems {\n    ...EGDSStylizedText\n    ...EGDSStandardLink\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationLinkNode on NotificationPhraseLinkNode {\n  id\n  type\n  uri {\n    __typename\n    value\n  }\n  target\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationLinkNodeWithIcon on NotificationPhraseLinkNode {\n  id\n  type\n  uri {\n    __typename\n    value\n  }\n  icon {\n    id\n    description\n    title\n    __typename\n  }\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationCard on NotificationCardTheme {\n  themeValue\n  cardBorder\n  __typename\n}\n\nfragment NotificationIcon on Icon {\n  id\n  description\n  title\n  withBackground\n  spotLight\n  __typename\n}\n\nfragment NotificationTextInputFieldForm on NotificationTextInputField {\n  label\n  id\n  placeholder\n  icon {\n    id\n    description\n    title\n    __typename\n  }\n  __typename\n}\n\nfragment NotificationSubmitButtonForm on NotificationSubmitButton {\n  label\n  id\n  actions {\n    ...NotificationActionFragment\n    __typename\n  }\n  icon {\n    id\n    description\n    title\n    __typename\n  }\n  buttonType\n  __typename\n}\n\nfragment NotificationSelectionFieldForm on NotificationSelectionField {\n  label\n  id\n  options {\n    __typename\n    id\n    text\n    shortLabel\n    value\n    selected\n    icon {\n      id\n      description\n      title\n      __typename\n    }\n  }\n  __typename\n}\n\nfragment EGDSStylizedText on EGDSStylizedText {\n  __typename\n  text\n  textSize: size\n  weight\n  theme\n}\n\nfragment EGDSStandardLink on EGDSStandardLink {\n  __typename\n  text\n  action {\n    resource {\n      value\n      __typename\n    }\n    target\n    analytics {\n      linkName\n      referrerId\n      __typename\n    }\n    __typename\n  }\n  iconPosition\n  size\n  disabled\n}\n\nquery NotificationsQuery($context: ContextInput!, $notificationLocation: NotificationLocationOnPage!, $lineOfBusiness: LineOfBusinessDomain!, $pageLocation: PageLocation!, $optionalPageId: String, $optionalContext: NotificationOptionalContextInput) {\n  notification(context: $context) {\n    inlineNotification(\n      notificationLocation: $notificationLocation\n      lineOfBusiness: $lineOfBusiness\n      pageLocation: $pageLocation\n      optionalPageId: $optionalPageId\n      optionalContext: $optionalContext\n    ) {\n      type\n      notificationLocation\n      title {\n        ...NotificationTitle\n        __typename\n      }\n      body {\n        ...NotificationBody\n        __typename\n      }\n      bannerContainer {\n        ...NotificationContainer\n        __typename\n      }\n      containerLink {\n        ...NotificationContainerLink\n        __typename\n      }\n      featuredImages {\n        ...NotificationImage\n        __typename\n      }\n      links {\n        ...NotificationLinks\n        __typename\n      }\n      dismiss {\n        ...NotificationDismiss\n        __typename\n      }\n      icon {\n        ...NotificationIcon\n        __typename\n      }\n      legalText {\n        ...NotificationLegalText\n        __typename\n      }\n      logo {\n        ...NotificationImage\n        __typename\n      }\n      revealActions {\n        ...NotificationActionFragment\n        __typename\n      }\n      backgroundImage {\n        ...NotificationImage\n        __typename\n      }\n      ...NotificationCustomQrCodeFragment\n      theme {\n        __typename\n        ...NotificationCard\n      }\n      attributes {\n        ...NotificationAttribute\n        __typename\n      }\n      switch {\n        ...NotificationSwitch\n        __typename\n      }\n      subBody {\n        ...NotificationSimpleSubBody\n        ...NotificationMultiSubBody\n        ...NotificationMessageCardSubBody\n        __typename\n      }\n      form {\n        ...NotificationForm\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment NotificationCustomQrCodeFragment on InlineNotification {\n  customQrCode {\n    __typename\n    image {\n      description\n      url\n      __typename\n    }\n    title\n    encodedImage\n  }\n  __typename\n}\n"
+  }
+```
+
+## Using the chrome extension
+
+Once you have installed the extension, you’ll notice a new tab when you open developer tools in chrome based browsers.
+
+![Dev tools tab image](https://ishabbi.tech/images/debug-apq-2/devtools-tab.png)
+
+On accessing this tab, you’ll be treated to a simple HTML form asking you, the user to add a regular expression which it will use for network interception.
+
+![Dev tools window tab image](https://ishabbi.tech/images/debug-apq-2/devtools-tab-window.png)
+
+On this screen, you can use simple regular expressions, which on submission will start intercepting the requests based on the url path params of the requests.
+
+![Screenshot when extension's debugger is enabled](https://ishabbi.tech/images/debug-apq-2/enabled-extension.png)
+
+When this extension is activated, you’ll get two requests for the same action. One, with the cached hash :
+
+![Example of apq query using cached hash](https://ishabbi.tech/images/debug-apq-2/basic-apq-query.png)
+
+And another will be the re-tried which will have the graphql query you need :
+
+![Example of apq query with the graphql query](https://ishabbi.tech/images/debug-apq-2/apq-after-interception.png)
+
+Notice, that the highlighted section is the same request re-tried but with the actual graphql query in place as well.
+
+## Installing the plugin
+
+The plugin is available in the chrome web store as well as the microsoft edge webstore. The links of which are:
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/gbanmonipiommdljkadhhiomhkgjchee/)
+- [Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/jifjbphbccecgcdagnjkefhjdcpljjic)
+
+## Plugin in action
+
+[Video walkthrough](https://ishabbi.tech/videos/debug-apq-2/GraphQL-Debugger-Tutorial.webm)
+
+
+---
+
+# Fetch GraphQL query from an Apollo client using APQ - Part 1
+
+> Struggling to automate GraphQL APIs or fetch queries? Learn about APQ and how to intercept these requests in this guide to GraphQL automation.
+
+- URL: https://ishabbi.tech/posts/debug-apq-extension-part1/
+- Published: 2024-07-20
+- Updated: 2026-10-26
+- Tags: Graphql, Apollo-Graphql, Apq, Chrome-Extensions, Debugging, Graphql-Queries
+
+**APIs (Application Programming Interfaces)** for web applications have evolved significantly since the early days of the internet. Initially, APIs were simple and used primarily for data exchange between server and client, often through protocols like SOAP (Simple Object Access Protocol). These early APIs were cumbersome and required extensive documentation and strict adherence to protocols.
+
+The rise of **REST (Representational State Transfer)** in the early 2000s marked a major shift, offering a more flexible and scalable approach to building web APIs. RESTful APIs leverage standard HTTP methods, making them easier to use and more intuitive. However, 2015 saw a paradigm shift, Facebook (now Meta Inc.) introduced **GraphQL** to the world, allowing clients to request specific data, resulting to it’s rapid adoption amongst enterprises. According to reports, it is projected that by 2025, *over 50% of enterprises will use GraphQL in production, up from less than 10% in 2021*.
+
+* * *
+
+## Graphql 101
+
+For those who are new to GraphQL, I’ll highlight some of the key concepts used below:
+
+### Schema
+
+The schema defines the structure of the API, specifying types, queries, mutations, and subscriptions. It serves as a contract between the client and server.
+
+### Types
+
+GraphQL uses various types such as Scalar, Object, Enum, Union, and Interface to define the shape of the data and the relationships between different data fields.
+
+### Queries
+
+Queries are used to fetch data from the server. They specify what data is needed and can include nested fields to retrieve related data in a single request.
+
+### Mutations
+
+Mutations are used to modify data on the server. They allow clients to perform actions like creating, updating, or deleting data.
+
+### Subscriptions
+
+Subscriptions enable real-time updates by allowing clients to listen for specific events and receive updates when those events occur.
+
+### Resolvers
+
+Resolvers are functions that handle the logic for fetching the data specified in queries, mutations, and subscriptions. They map schema fields to data sources.
+
+### Fields
+
+Fields are the individual pieces of data that can be queried within a type. Each field can have arguments, making the queries flexible and dynamic.
+
+### Arguments
+
+Arguments allow clients to pass parameters to fields, enabling the customization of the data fetched by queries and mutations.
+
+### Directives
+
+Directives provide a way to modify the behavior of queries, such as including or skipping fields based on conditions (@include and @skip).
+
+### Fragments
+
+Fragments allow the reuse of parts of queries and mutations. They help in structuring queries and reducing redundancy by defining reusable units of selection sets.
+
+### Introspection
+
+Introspection is a feature that allows clients to query the schema itself to understand the types, fields, and operations available, aiding in API exploration and documentation.
+
+For further reading, you can go through the getting started present [here](https://graphql.org/learn/)
+
+As discussed earlier, graphql’s strengths is its ability to fetch exactly the data needed. This can however, also lead to issues if not managed correctly. Over-querying can occur if clients request too much data, impacting performance. Under-querying, where not enough data is requested, might require multiple requests to fulfill a need, which could negate some of the benefits of using GraphQL​.
+
+Also, in order to avoid under and over-fetching, developers might resort to creating complex queries containing multiple fragments which increases the size of the payload that needs to be sent to the network which again impacts the performance of the application.
+
+And this is where we are introduced to the ***Apollo Client***.
+
+* * *
+
+## Apollo Client and APQ
+
+As per their current documentation:
+
+> Apollo provides the developer platform and tools to unify your data and services into a supergraph—a single distributed GraphQL API. Apollo makes GraphQL work for you at any stage and any scale, whether you're just getting started, building your first API, querying an API, or migrating your platform onto the supergraph.
+
+Apollo GraphQL Client provides several features that help overcome the limitations of GraphQL, enhancing the development experience and performance of GraphQL-based applications. The discussion for which is limited to **Automatic persisted queries or APQ**
+
+> A persisted query is a query string that's cached on the server side, along with its unique identifier (always its SHA-256 hash). Clients can send this identifier instead of the corresponding query string, thus reducing request sizes dramatically (response sizes are unaffected).
+> 
+> To persist a query string, Apollo Server must first receive it from a requesting client. Consequently, each unique query string must be sent to Apollo Server at least once. After any client sends a query string to persist, every client that executes that query can then benefit from APQ.
+
+Now, this works wonders in boosting the performance of the application. But, does pose a threat to testing teams as they are unaware of the contracts set for the cached query. For example, a graphql query in [expedia.com](https://www.expedia.com) would be something like this:
+
+```json
+[
+    {
+        "operationName": "NotificationsQuery",
+        "variables": {
+            "k1":"v1",
+            "k2":"v2"
+        },
+        "extensions": {
+            "persistedQuery": {
+                "version": 1,
+                "sha256Hash": "<a really long hash which you would not want on blog sites!>"
+            }
+        }
+    }
+]
+```
+
+In a situation where the schema and documentations are not shared with the testing teams, one would require to either go through the codebase to view the queries being used or each out to the developer who is the owner of that particular feature/improvement.
+
+This can become a bottleneck for fast moving teams who are pushing features day in and day out to production *#IYKYK*. This then further prompted me to work on a utility which is the subject of this article.
+
+The solution for which I’ll post in the [part-2](https://ishabbi.tech/posts/debug-apq-extension-part2/) of this article.
+
+* * *
+
+
+---
+
+# Understanding the Selenium Webdriver
+
+> Discover how Selenium works behind the scenes. While many test automation pros use it, few grasp its inner workings. Gain insider knowledge here.
+
+- URL: https://ishabbi.tech/posts/understanding-selenium-webdriver/
+- Published: 2020-02-19
+- Updated: 2026-10-26
+- Tags: Selenium, Webdriver, Testautomation, Webdriver Protocol
+
+Over the course of time, my pursuit for understanding the internals of Selenium compelled me to crawl the corners of the internet in search for answers. I was searching for something that can help me connect the dots between the the browser and selenium.
+
+With countless blogs and documentation fuelling my experiments, here is what I’ve been able to learn of the WebDriver and the [W3C WebDriver Protocol](https://w3c.github.io/webdriver/).
+
+## What is a WebDriver?
+
+According to the selenium documentation :
+
+> WebDriver drives a browser natively, as a user would, either locally or on a remote machine using the Selenium server, marks a leap forward in terms of browser automation.
+> 
+> Selenium WebDriver refers to both the language bindings and the implementations of the individual browser controlling code. This is commonly referred to as just WebDriver.
+> 
+> Selenium WebDriver is a W3C Recommendation
+
+To further simplify the understanding, I define the WebDriver as :
+
+> WebDriver is a server sitting between the test code and the browser imitating user actions.
+> 
+> It implements a set of REST-ish like APIs mentioned as part of the W3C WebDriver Protocol which perform the relevant actions such as clicks, sending text to input, etc as per the specifications.
+> 
+> These implementations are generally based on the browsers. Eg : Chrome and Firefox have a totally different implementation of the same set of standards. Hence, the requirement of GeckoDriver and ChromeDriver.
+
+## Running the WebDriver locally :
+
+In order for the code to interact with the browser, it relevant WebDriver need to be started. As mentioned previously, this will help us in serving the actions we want to automate on the browser. In this example, we’ll be using Chrome whose’s WebDriver instance can be started using the below command :
+
+```shell
+./chromedriver --port 9515
+```
+
+This starts the instance of the WebDriver which can be used to automate browser actions. Here, the driver is listening to the port ***9515***, so all the request we make should be directed on the same port.
+
+## Interacting with the WebDriver :
+
+Now, in order to start a new instance of the browser, one needs to send a POST request to the ***/session*** endpoint along with the capabilities of the browser.
+
+```shell
+curl -v -XPOST "http://localhost:9515/session" -d '{"capabilities":{"firstMatch":[{"browserName":"chrome","goog:chromeOptions":{"args":[],"excludeSwitches":["enable-automation"],"extensions":[],"prefs":{"credentials_enable_service":false,"profile.default_content_setting_values.notifications":1,"profile.default_content_settings.popups":0,"profile.password_manager_enabled":false}}}]},"desiredCapabilities":{"browserName":"chrome","goog:chromeOptions":{"args":[],"excludeSwitches":["enable-automation"],"extensions":[],"prefs":{"credentials_enable_service":false,"profile.default_content_setting_values.notifications":1,"profile.default_content_settings.popups":0,"profile.password_manager_enabled":false}}}}'
+```
+
+The output of which gives me the session id of the browser, which in turn is used in performing the user actions. The output of the command above gave the following response :
+
+```json
+{
+  "value": {
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "81.0.4044.138",
+      "chrome": {
+        "chromedriverVersion": "81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776})",
+        "userDataDir": "/var/folders/mx/qj98dnwj50vfpk4gr8z0__jr0000gn/T/.com.google.Chrome.B4BYFs"
+      },
+      "goog:chromeOptions": {
+        "debuggerAddress": "localhost:65302"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "mac os x",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+        "implicit": 0,
+        "pageLoad": 300000,
+        "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+    },
+    "sessionId": "8294d507e58e23d05cb03cfd26540530"
+  }
+}
+```
+
+With the session id with me, I can now use it to further automate the browser action like navigating to a webpage, for which we need to hit the ***/session/{sessionId}/url*** endpoint along with the url as payload :
+
+```shell
+curl -v -XPOST "http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530/url" -d '{"url" : "https://www.amazon.com"}'
+```
+
+The response of which after successfully navigating to the url (in this case amazon) is null as per the specification if things are fine.
+
+```json
+{"value":null}
+```
+
+And the same session id can be used to delete my browser session by sending the ***DELETE*** request to the ***/session/{sessionId}*** endpoint, effectively quitting my browser :
+
+```shell
+curl -XDELETE "http://localhost:9515/session/8294d507e58e23d05cb03cfd26540530"
+```
+
+The response of which is again null as per the specification.
+
+```json
+{"value":null}
+```
+
+## The above example give better insights of the working of selenium. The session that it creates and how that is used w.r.t the automation of user actions. Hope this article finds its way for the curious soul searching for answers.
+
+
+---
+
+# Generating HTML reports for your tests via Gradle
+
+> Learn to create custom reports in Gradle using MarkupBuilder. This guide offers a starting method for crafting personalized project reports.
+
+- URL: https://ishabbi.tech/posts/gradle-reporting-easy-way/
+- Published: 2020-02-17
+- Updated: 2026-10-26
+- Tags: Gradle, Reports, Frameworks, Html, Css, Xml
+
+In the test automation world, visualizing the results of your tests have an equal priority in conjunction with the tests being executed. How will you be able to make the most out of the tests being executed? Would a simple report having Pass/Fail ratio along with the screenshots suffice? or the reports need to be more comprehensive? maybe the report needs to keep a trend of the tests being executed over time? or needs to have a documented step for each action?
+
+There are many frameworks for your reporting needs (two of the most notable ones are [Allure](http://allure.qatools.ru/) and [Extent](https://extentreports.com/) reports) in the market today, even gradle provides an in-house html report on execution of a junit/testng test.
+
+In case your project is on gradle and you want to customize the reports or your tests run via a CLI, here I try to explain an easy way to start with generating your own custom HTML reports via gradle tasks using the Groovy MarkupBuilder.
+
+* * *
+
+## What is Gradle?
+
+Gradle is an open-source build automation tool like Maven and Ant. It is build upon the same concepts as its predecessors with the only difference being that it is better in terms of performance and provides a Groovy-based DSL allowing you; the programmer to be more flexible. It supports languages like Java, Scala and Groovy with support for more languages planned for the future.
+
+In case, your project is not part of the above system of supported languages you can create a project with the basic gradle settings too. Due to the DSL and task based structure of gradle, it provides you a lot of flexibility. As long as you can code the logic as a task, there are many things you can do in your project. You can read further about gradle tasks and build lifecycle [here](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
+
+* * *
+
+## The Groovy MarkupBuilder
+
+`groovy.xml.MarkupBuilder` is the Groovy helper class which will help us in generating the html file for our reports.
+
+To create a tag using the markup builder you need to add a method call with the name of the tag that you want to create. Assuming the `xmlMarkup` as the object initialized, the below code :
+
+```groovy
+xmlMarkup.myCustomTag()
+```
+
+will create a tag `myCustomTag` in the XML/HTML format
+
+```html
+<myCustomTag></myCustomTag>
+```
+
+To add text to the tag created, just add a string as an argument. So, the below code :
+
+```groovy
+xmlMarkup.myCustomTag("Lorem Ipsum")
+```
+
+will produce :
+
+```html
+<myCustomTag>Lorem Ipsum</myCustomTag>
+```
+
+To add any attribute to a tag you can add key values as arguments to the call. So the below code :
+
+```groovy
+xmlMarkup.myCustomTag("class": "container", "name": "typical", "Lorem Ipsum")
+```
+
+will create the your tag, with the following attributes :
+
+```html
+<myCustomTag class="container" name="typical">Lorem Ipsum</myCustomTag>
+```
+
+To create nested tags, you need to add groovy closures :
+
+```groovy
+xmlMarkup.myCustomTag("class": "container", "name": "typical") { 
+    tag1("class": "table") { 
+        tag2("class": "turner","Lorem Ipsum") 
+    } 
+}
+```
+
+To create self-closing tags you can use `mkp.yeild()` method call.
+
+You can read more about MarkupBuilder [here](https://groovy-lang.org/processing-xml.html#_markupbuilder).
+
+* * *
+
+## Usage :
+
+A typical gradle flow contains of tasks which are executed in a respective phase of the build’s cycle. A task in gradle’s terminology can be work such as executing tests for a build, copying a particular file to a different destination, executing a CLI command, archiving a folder, etc. The example shown below is of a test output in the JUnit’s XML format. For our use case, we’ll be creating a task called htmlReport which will read the data from a XML and write it down to the report as an HTML file.
+
+Given we have a XML file as below :
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuites>
+  <testsuite name="Test Suite" tests="3" failure="3" timestamp="2018-10-04T06:58:18.063Z">
+    <testcase name="Test 1" classname="com.test.demo" time="92.689">
+      <failure message="Step Failed: Element not found"/>
+      <system-out>Some Test Related Output</system-out>
+    </testcase>
+    <testcase name="Test 2" classname="com.test.demo" time="95.604">
+      <failure message="Step Failed: Element not found"/>
+      <system-out>Some Test Related Output</system-out>
+    </testcase>
+    <testcase name="Test 3" classname="com.test.demo" time="93.25">
+      <failure message="Step Failed: Element not found"/>
+      <system-out>Some Test Related Output</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
+```
+
+In order to convert the above into a custom HTML report, we’ll start with the below skeletal `build.gradle` file.
+
+```groovy
+import groovy.xml.MarkupBuilder
+group '<project-name>'
+version '1.0-SNAPSHOT'
+apply plugin: 'base'
+task htmlReport {
+     // Write code here
+}
+```
+
+The `apply plugin: 'base'` provides some tasks and conventions that are common to most builds. It also adds a structure to the build that promotes consistency in how they are run.
+
+We can parse the above written xml in Groovy using `XMLParser`. The following code parses the xml document for us :
+
+```groovy
+def xmlFile = new XmlParser().parse(filename)
+```
+
+You can fetch values of a tag’s attributes by following the syntax :
+
+```groovy
+xmlFile.<tagName>['@<attribute>']
+
+//To get name of a testsuite from the given xml
+xmlFile.testsuite['@name']
+
+//To get the name of the first test case present inside the testsuite
+xmlFile.testsuite[0].testcase[0]['@name']
+```
+
+Now that we know how to read from the xml file. We start by initializing the MarkupBuilder for creating our html file :
+
+```groovy
+def xmlWriter = new FileWriter(file("${project.buildDir}/index.html"))
+def xmlMarkup = new MarkupBuilder(xmlWriter)
+```
+
+As an HTML convention we’ll need to add the `DOCTYPE` tag
+
+```groovy
+xmlWriter.write("<!DOCTYPE html>\n")
+```
+
+Using our learnings from the *The Groovy MarkupBuilder* section, we can create the HTML documents like the one below :
+
+```groovy
+xmlMarkup.html() {
+  head() {
+    meta(charset: "utf-8")
+    meta(name: "viewport", content:"width=device-width, initial-scale=1, maximum-scale=1")
+    title("Test Report")
+    link(rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css", media: "screen,projection") { mkp.yield("") }
+    link(rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons") { mkp.yield("") }
+ }
+  body(){
+    header(){
+        div("class":"nav-wrapper"){
+            nav(class: "blue darken-3") {
+                a(class: "brand-logo", href: "#",id: "logo-container") {
+                img(class: "logo-img",src: "") {
+                    mkp.yield("")
+                }
+            }
+            ul(class: "center flow-text", "TEST RESULTS")
+            }
+        }
+    }
+    div(class: "container") {
+    div(style: "margin-bottom: 50px;") {
+        table(class: "striped responsive-table", id: "example") {
+            thead() {
+                tr() {
+                    th(class: "center","Test Suite")
+                    th(class: "center","Passed")
+                    th(class: "center","Failed")
+                    th(class: "center","Total")
+                }
+            }
+            tbody() {
+            xmlFile.testsuite.each { testsuite ->
+            tr() {
+                td(class: "center",) {
+                    a(href: "#",testsuite['@name'])
+                }
+                td(class: "center",Integer.valueOf(Integer.valueOf(testsuite['@tests']) - Integer.valueOf(testsuite['@failure'])))
+                td(class: "center",testsuite['@failure'])
+                td(class: "center",testsuite['@tests'])
+            }
+        }
+    }
+}
+    footer(class: "page-footer blue darken-3") {
+        div(class: "footer-copyright") {
+            div(class: "container", "2018 - Sprinklr") {
+                a(class: "grey-text text-lighten-4 right", "")
+            }
+        }
+    }
+}
+```
+
+So our build.gradle file should look like this :
+
+```groovy
+import groovy.xml.MarkupBuilder
+group '<project-name>'
+version '1.0-SNAPSHOT'
+apply plugin: 'base'
+task htmlReport {
+    doLast {
+    def xmlFile = new XmlParser().parse(new File("xmlFileName"))
+def xmlWriter = new FileWriter(file("${project.buildDir}/index.html"))
+def xmlMarkup = new MarkupBuilder(xmlWriter)
+xmlWriter.write("<!DOCTYPE html>\n")
+xmlMarkup.html() {
+    head() {
+        meta(charset: "utf-8")
+        meta(name: "viewport", content:"width=device-width, initial-scale=1, maximum-scale=1")
+        title("Test Report")
+        link(rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css", media: "screen,projection") { mkp.yield("") }
+        link(rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons") { mkp.yield("") }
+    }
+    body(){
+        header(){
+            div("class":"nav-wrapper"){
+                nav(class: "blue darken-3") {
+                    a(class: "brand-logo", href: "#",id: "logo-container") {
+                        img(class: "logo-img",src: "") {
+                            mkp.yield("")
+                        }
+                    }
+                    ul(class: "center flow-text", "TEST RESULTS")
+                }
+            }
+        }
+        div(class: "container") {
+            div(style: "margin-bottom: 50px;") {
+                table(class: "striped responsive-table", id: "example") {
+                    thead() {
+                        tr() {
+                            th(class: "center","Test Suite")
+                            th(class: "center","Passed")
+                            th(class: "center","Failed")
+                            th(class: "center","Total")
+                        }
+                    }
+                    tbody() {
+                        xmlFile.testsuite.each { testsuite ->
+                            tr() {
+                                td(class: "center",) {
+                                    a(href: "#",testsuite['@name'])
+                                }
+                                td(class: "center",Integer.valueOf(Integer.valueOf(testsuite['@tests']) - Integer.valueOf(testsuite['@failure'])))
+                                td(class: "center",testsuite['@failure'])
+                                td(class: "center",testsuite['@tests'])
+                            }
+                        }
+                    }
+                }
+            }
+            xmlFile.testsuite.each { testsuite ->
+                h2("Suite Name : " + testsuite['@name'])
+                h5("Total Tests Executed : " + testsuite['@tests'])
+                h5("Total Tests Failed : " + testsuite['@failure'])
+                h5("Date : " + testsuite['@timestamp'])
+                div(style: "margin-bottom: 50px;") {
+                    table(class: "striped highlight responsive-table") {
+                        thead() {
+                            tr() {
+                                th(class: "center","Test Name")
+                                th(class: "center","Result")
+                                th(class: "center","Failure Reason")
+                                th(class: "center","Test URL")
+                            }
+                        }
+                        tbody() {
+                            testsuite.testcase.each { testcase ->
+                                if(testcase.failure.size() <= 0) {
+                                    tr(class: "green lighten-5") {
+                                        td(class: "center",testcase['@name'])
+                                        td(class: "center","Passed")
+                                        td("")
+                                        td(class: "center") {
+                                            a(href: testcase.'system-out'.text(), target: "_blank", testcase.'system-out'.text())
+                                        }
+                                    }
+                                } else {
+                                    tr(class: "red lighten-5") {
+                                        td(class: "center",testcase['@name'])
+                                        td(class: "center", "Failed")
+                                        td(class: "center", testcase.failure['@message'].toString().replace("[","").split("More info")[0])
+                                        td(class: "center") {
+                                            a(href: testcase.'system-out'.text(), target: "_blank", testcase.'system-out'.text())
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer(class: "page-footer blue darken-3") {
+        div(class: "footer-copyright") {
+            div(class: "container", "Ish Abbi") {
+                a(class: "grey-text text-lighten-4 right", "")
+            }
+        }
+    }
+    script(type: "text/javascript", src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js") { mkp.yield("") }
+}
+    }
+}
+```
+
+All you need to do now is to place this report generation task after the task which executes your tests and you should be able to view your custom reports upon success/failure of the tests.
+
+![Sample test report image](https://ishabbi.tech/images/gradle-reporting/sample-gradle-report.png)
+
+You can also refer to the example code hosted on [GitHub](https://github.com/rookieInTraining/gradleReportingExample).
+
+
+---
+
+# About Me
+
+> Hey there! Welcome to my little corner of the internet. My name is Ish. 👋. I've been navigating this world since 1989.
+
+- URL: https://ishabbi.tech/aboutme/
+
+Hey there! Welcome to my little corner of the internet. My name is Ish. 👋. I’ve been navigating this world since October, 1989.
+
+## What I Do
+
+By day, I’m the Director of Quality Assurance and Automation, where I lead an amazing team of software engineers and testers. We’re the folks behind the scenes making sure that when you use some of the B2B and B2C platform, everything works smoothly and securely. It’s like being a digital detective – we hunt down bugs, optimize performance, and ensure that every feature is working just as it should.
+
+## My Journey
+
+My tryst with software quality started over 12 years ago, and it’s been quite a ride! I’ve had the privilege of working across various domains – from ensuring gamers have seamless experiences in virtual worlds to helping travelers book their dream vacations. Each project has been a new adventure, teaching me something valuable about creating software that not only works but delights users.
+
+## Tech Toolbox
+
+If you’re curious about the nitty-gritty, I’m all about automating the boring stuff so we can focus on the challenging and fun parts of software testing. I wield an arsenal of tools including Jira, Appium, Selenium, and TestNG. I speak multiple languages too – Java, Python, JavaScript, you name it! And don’t get me started on APIs; I find RESTful interfaces particularly intriguing.
+
+## Beyond the Code
+
+While I love diving deep into code and test scripts, I realized there’s more to creating great software than just technical skills. That’s why I pursued an Executive MBA, focusing on Leadership, Strategy, and Digital Marketing. It’s been eye-opening to view software development through a business lens and understand how our work directly impacts customer satisfaction and business growth.
+
+## Why I Blog
+
+This blog is my way of giving back to the tech community and sharing the lessons I’ve learned along the way. Here, you’ll find posts about:
+
+- The latest trends in software testing and quality assurance
+- Tips and tricks for effective test automation
+- Insights on leading tech teams and fostering a culture of quality
+- Musings on the intersection of technology, business, and customer experience
+
+## [Contact Me](https://ishabbi.tech/contactme/)
+
+
+---
+
+# Hey there! Random stranger!
+
+> Hey there! Random stranger! Welcome to my little corner of the internet. My name is Ish. 👋. I've been navigating this world since 1989.
+
+- URL: https://ishabbi.tech/contactme/
+
+I’m always excited to connect with fellow tech enthusiasts, whether you’re a seasoned software professional or just starting your journey in the world of software. Feel free to drop an email @ “[reach-ish@proton.me](mailto:reach-ish@proton.me)”. Alternatively, I’m available @ Topmate. Let’s connect.
+

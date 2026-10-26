@@ -1,0 +1,35 @@
+# Ish's Blog
+
+> Welcome to Ish's blog. Find interesting articles and snippets about testing, software engineering and many more.
+
+Ish Abbi writes about software testing, QA leadership, test automation, accessibility and the occasional personal journal entry. Links below point to clean Markdown copies of each page (drop the trailing `index.md` for the HTML version). The full text of every page is also available in one file at https://ishabbi.tech/llms-full.txt.
+
+## Posts
+
+- [Scoring your accessibility observations](https://ishabbi.tech/posts/a11y-score-cards/index.md): Learn ways of how one can quantify the results of your accessibility tests into a score (April 20, 2025)
+- [QA Metrics: Leading and Lagging Indicators Every Tester Should Know](https://ishabbi.tech/posts/qa-best-practices-underdogs/index.md): You're a QA leader? Planning on being one? You've been asked for your north-star metric? (August 26, 2024)
+- [Fetch GraphQL query from an Apollo client using APQ - Part 2](https://ishabbi.tech/posts/debug-apq-extension-part2/index.md): Struggling to automate GraphQL APIs or fetch queries? Learn about APQ and how to intercept these requests in this guide to GraphQL automation. (August 10, 2024)
+- [Fetch GraphQL query from an Apollo client using APQ - Part 1](https://ishabbi.tech/posts/debug-apq-extension-part1/index.md): Struggling to automate GraphQL APIs or fetch queries? Learn about APQ and how to intercept these requests in this guide to GraphQL automation. (July 20, 2024)
+- [Understanding the Selenium Webdriver](https://ishabbi.tech/posts/understanding-selenium-webdriver/index.md): Discover how Selenium works behind the scenes. While many test automation pros use it, few grasp its inner workings. Gain insider knowledge here. (February 19, 2020)
+- [Generating HTML reports for your tests via Gradle](https://ishabbi.tech/posts/gradle-reporting-easy-way/index.md): Learn to create custom reports in Gradle using MarkupBuilder. This guide offers a starting method for crafting personalized project reports. (February 17, 2020)
+
+## Journal
+
+- [The problem with my username and the thought I had behind it](https://ishabbi.tech/posts/the-problem-with-my-username/index.md): For years I've been using a username because I felt it would keep me humble (June 12, 2026)
+
+## About
+
+- [About Ish Abbi](https://ishabbi.tech/aboutme/index.md): Hey there! Welcome to my little corner of the internet. My name is Ish. 👋. I've been navigating this world since 1989.
+- [Contact](https://ishabbi.tech/contactme/index.md): How to get in touch by email or book a session on Topmate.
+
+## Optional
+- [Full text](https://ishabbi.tech/llms-full.txt): Every page above in a single Markdown file.
+- [All posts](https://ishabbi.tech/posts/): Full list of blog posts.
+- [Tags](https://ishabbi.tech/tags/): Posts grouped by tag.
+- [RSS feed](https://ishabbi.tech/index.xml): Feed of recent posts.
+- [Sitemap](https://ishabbi.tech/sitemap.xml): Every page on the site.
+- [Github](https://github.com/rookieInTraining/)
+- [Twitter](https://twitter.com/ish_abbi/)
+- [LinkedIn](https://www.linkedin.com/in/ish-abbi/)
+- [Medium](https://medium.com/@ishabbi)
+- [Stackoverflow](https://stackoverflow.com/users/3762268/techrookie89)
